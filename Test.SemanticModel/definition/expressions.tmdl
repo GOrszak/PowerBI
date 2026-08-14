@@ -1,0 +1,69 @@
+expression CsvTables =
+		let
+		    FolderPath = "C:\Users\Acetonitryl\Desktop\PBI\Project\PowerBI\dax_training_dataset_retailpulse",
+		
+		    Source = Folder.Files(FolderPath),
+		
+		    CsvOnly =
+		        Table.SelectRows(
+		            Source,
+		            each [Extension] = ".csv"
+		        ),
+		
+		    KeepUsefulColumns =
+		        Table.SelectColumns(
+		            CsvOnly,
+		            {"Name", "Content"}
+		        ),
+		
+		    AddTableName =
+		        Table.AddColumn(
+		            KeepUsefulColumns,
+		            "TableName",
+		            each Text.BeforeDelimiter([Name], ".csv"),
+		            type text
+		        ),
+		
+		    ParseCsv =
+		        Table.AddColumn(
+		            AddTableName,
+		            "Data",
+		            each
+		                Table.PromoteHeaders(
+		                    Csv.Document(
+		                        [Content],
+		                        [
+		                            Delimiter = ",",
+		                            Encoding = 65001,
+		                            QuoteStyle = QuoteStyle.Csv
+		                        ]
+		                    ),
+		                    [PromoteAllScalars = true]
+		                )
+		        ),
+		
+		    KeepFinal =
+		        Table.SelectColumns(
+		            ParseCsv,
+		            {"TableName", "Data"}
+		        ),
+		
+		    ToRecord =
+		        Record.FromTable(
+		            Table.RenameColumns(
+		                KeepFinal,
+		                {
+		                    {"TableName", "Name"},
+		                    {"Data", "Value"}
+		                }
+		            )
+		        )
+		in
+		    ToRecord
+	lineageTag: c7fe2abd-ef7e-470d-84d2-1a2676831fd2
+	queryGroup: Source_files\File_load
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Record
+

@@ -1,0 +1,4 @@
+relationship AutoDetected_b462bbd2-1d04-418b-af4c-1ee6ae02f264
+	fromColumn: FactSales.ProductKey
+	toColumn: DimProduct.ProductKey
+

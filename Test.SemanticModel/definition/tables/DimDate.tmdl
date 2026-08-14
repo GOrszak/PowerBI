@@ -1,0 +1,192 @@
+table DimDate
+	lineageTag: 004c60a2-2a9e-4dc6-a3e7-7d08e8180b45
+
+	column DateKey
+		dataType: string
+		lineageTag: 3efa7cef-83e9-43a7-8670-f362f0811871
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: string
+		lineageTag: c1c876ae-c5bb-4af3-9618-511f6107481d
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: string
+		lineageTag: 2a946bac-e8f8-44bd-97f9-e433648fc73a
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: string
+		lineageTag: 5214ce3f-e12e-48fb-bb3e-d23cfc7ebe47
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterLabel
+		dataType: string
+		lineageTag: e6cca416-0bf6-4b41-9370-359abe924764
+		summarizeBy: none
+		sourceColumn: QuarterLabel
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearQuarter
+		dataType: string
+		lineageTag: 780b6dca-356c-482a-9614-afbd305b00e4
+		summarizeBy: none
+		sourceColumn: YearQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		dataType: string
+		lineageTag: 88bc89bd-696b-4ce8-9236-00ff46ac206f
+		summarizeBy: none
+		sourceColumn: MonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: 10928e48-5ef7-4f38-b68b-cba230eaffe6
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthShort
+		dataType: string
+		lineageTag: 9fc8b131-012f-46db-9594-90078228a2b0
+		summarizeBy: none
+		sourceColumn: MonthShort
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		dataType: string
+		lineageTag: dae0d721-67e6-4fef-9d3e-3593032d5b5f
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthStartDateKey
+		dataType: string
+		lineageTag: 7688935a-01c3-4253-8f0e-dff3ba115f5b
+		summarizeBy: none
+		sourceColumn: MonthStartDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekNumberISO
+		dataType: string
+		lineageTag: ae5b5453-3163-4535-ac3a-441df074bd0d
+		summarizeBy: none
+		sourceColumn: WeekNumberISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ISOYear
+		dataType: string
+		lineageTag: 2bce6907-7a3c-4393-a743-cab0d16c4134
+		summarizeBy: none
+		sourceColumn: ISOYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekdayNumber
+		dataType: string
+		lineageTag: c9d67899-aec5-422c-b234-c451cc11c7b7
+		summarizeBy: none
+		sourceColumn: WeekdayNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekdayName
+		dataType: string
+		lineageTag: 0ed3c7fb-a0d3-4ae1-b7fd-0f78f8e64f58
+		summarizeBy: none
+		sourceColumn: WeekdayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWeekend
+		dataType: string
+		lineageTag: a40ba76a-235c-4178-b793-209b059c8d1d
+		summarizeBy: none
+		sourceColumn: IsWeekend
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWorkingDay
+		dataType: string
+		lineageTag: 81664c2c-53ac-426d-b1c3-92c4e34fea28
+		summarizeBy: none
+		sourceColumn: IsWorkingDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column HolidayName
+		dataType: string
+		lineageTag: 879ac3e6-1800-4804-a462-dedaedbcc73a
+		summarizeBy: none
+		sourceColumn: HolidayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalYear
+		dataType: string
+		lineageTag: cdc8f9d1-85bf-4df0-b243-8a5135fb2c2b
+		summarizeBy: none
+		sourceColumn: FiscalYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalQuarter
+		dataType: string
+		lineageTag: 66f53f5f-4056-43d7-8276-a43883512da3
+		summarizeBy: none
+		sourceColumn: FiscalQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalMonthNumber
+		dataType: string
+		lineageTag: 1bd73550-6e28-4ea6-91dc-ea55e314db00
+		summarizeBy: none
+		sourceColumn: FiscalMonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column DaysFromStart
+		dataType: string
+		lineageTag: 2db66942-3ea5-4594-ac1f-2802d575f618
+		summarizeBy: none
+		sourceColumn: DaysFromStart
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDate = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[DimDate]
+				in
+				  Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
