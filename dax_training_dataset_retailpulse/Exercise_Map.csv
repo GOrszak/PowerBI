@@ -1,0 +1,17 @@
+﻿ChapterArea,Tables,Practice,TypicalDAX
+1 Data model basics,"DimDate, DimProduct*, FactSales","Create star schema, set relationships, test filter direction.","COUNTROWS, SUM, RELATED"
+2 DAX basics,"FactSales, DimProduct",Create calculated columns and base measures.,"SUM, SUMX, DIVIDE, IF, SWITCH, VAR"
+3 Basic table functions,"DimProduct, DimCustomer, FactSales",Return filtered product/customer tables in DAX Studio.,"FILTER, ALL, ALLEXCEPT, VALUES, DISTINCT"
+4 Evaluation contexts,"FactSales, DimProduct, DimCustomer","Compare row context, filter context, iterator behavior.","SUMX, AVERAGEX, EARLIER, RELATEDTABLE"
+5 CALCULATE/CALCULATETABLE,"FactSales, DimDate, DimProduct","Rewrite filters, context transition, active/inactive dates.","CALCULATE, CALCULATETABLE, USERELATIONSHIP, KEEPFILTERS"
+6 Common patterns,"FactSales, DimProduct, DimCustomer","Ratios, running totals, Pareto/ABC, workday sales.","ALLSELECTED, RANKX, TOPN, cumulative totals"
+7 Time intelligence,"DimDate, FactSales, FactInventorySnapshot, FactReturns","YTD/QTD/MTD, PY, rolling 12 months, closing inventory.","DATESYTD, SAMEPERIODLASTYEAR, DATEADD, LASTNONBLANK"
+8 Statistics,"FactSales, FactCustomerSatisfaction, FactFinanceLedger","Ranking, median, percentiles, variance, IRR/NPV style analysis.","RANKX, MEDIANX, PERCENTILEX.INC, STDEVX.P"
+9 Advanced table functions,All dimensions/facts,Build query outputs and virtual tables.,"ADDCOLUMNS, SELECTCOLUMNS, SUMMARIZECOLUMNS, GROUPBY, UNION, INTERSECT, EXCEPT"
+10 Advanced contexts,"DimProduct, DimDate, FactSales","Visual totals, nested filters, filter overwrite/intersection.","ALLSELECTED, KEEPFILTERS, REMOVEFILTERS, TREATAS"
+11 Hierarchies,"DimProduct*, DimEmployee, DimAccount, FactFinanceLedger","Product hierarchy %, parent-child manager rollups, unary account signs.","PATH, PATHITEM, ISINSCOPE"
+12 Advanced relationships,"FactBudget, FactExchangeRate, Bridges, FactSales","Different granularity budgets, currency conversion, many-to-many interests.","TREATAS, USERELATIONSHIP, CROSSFILTER, SUMX"
+13 VertiPaq engine,"FactSales, DimCustomer, DimProduct",Compare high/low cardinality columns and model size.,"Model analysis, column cardinality"
+14 Model optimization,All,"Remove unused high-cardinality columns, prefer dimensions, reduce date/time cardinality.",Modeling choices
+15 Query plans,FactSales,Use DAX Studio Server Timings and Query Plan.,"SUMMARIZECOLUMNS, TOPN"
+16 DAX optimization,"FactSales, DimCustomer, DimProduct","Compare iterator vs optimized measure, filter placement, materialization.","SUMX, FILTER, CALCULATE, VAR"

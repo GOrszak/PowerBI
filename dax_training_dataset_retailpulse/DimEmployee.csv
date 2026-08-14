@@ -1,0 +1,46 @@
+﻿EmployeeKey,EmployeeName,ManagerEmployeeKey,Role,Department,HireDate
+1,Alicja Zielinska,,CEO,Executive,2017-01-15
+2,Hugo Novak,1,Sales Director,Sales,2019-12-25
+3,Filip Dubois,1,Operations Director,Operations,2018-07-14
+4,Lucia Nilsson,1,Finance Director,Finance,2018-12-12
+5,Marek Kowalski,1,Marketing Director,Marketing,2019-07-23
+6,Tomas Wojcik,2,Regional Sales Manager,Sales,2019-06-11
+7,Lena Nilsson,2,Regional Sales Manager,Sales,2020-03-23
+8,Marta Rossi,2,Regional Sales Manager,Sales,2021-01-08
+9,Adam Rossi,2,Regional Sales Manager,Sales,2020-01-23
+10,Lucia Dubois,8,Salesperson,Sales,2022-03-05
+11,Marta Nowak,7,Salesperson,Sales,2021-04-01
+12,Jan Klein,8,Salesperson,Sales,2021-02-23
+13,Lukas Muller,8,Salesperson,Sales,2022-04-14
+14,Sofia Kowalski,7,Salesperson,Sales,2021-05-24
+15,Marco Jansen,7,Salesperson,Sales,2021-08-22
+16,Ola Dubois,7,Salesperson,Sales,2021-03-01
+17,Anna Rossi,6,Salesperson,Sales,2021-04-20
+18,Lena Dubois,9,Salesperson,Sales,2022-10-30
+19,Adam Lewandowski,9,Salesperson,Sales,2020-02-27
+20,Adam Wojcik,6,Salesperson,Sales,2023-08-26
+21,Sofia Nilsson,8,Salesperson,Sales,2021-07-28
+22,Lena Kowalski,9,Salesperson,Sales,2020-11-09
+23,Marek Jansen,6,Salesperson,Sales,2021-08-08
+24,Kasia Rossi,6,Salesperson,Sales,2021-01-20
+25,Marco Muller,6,Salesperson,Sales,2021-10-14
+26,Sofia Muller,6,Salesperson,Sales,2023-01-03
+27,Jan Smith,8,Salesperson,Sales,2020-11-27
+28,Tomas Dubois,8,Salesperson,Sales,2021-11-23
+29,Kasia Wojcik,7,Salesperson,Sales,2021-11-20
+30,Emma Muller,7,Salesperson,Sales,2020-09-30
+31,Filip Wojcik,7,Salesperson,Sales,2021-04-23
+32,Sofia Kowalski,6,Salesperson,Sales,2020-10-02
+33,Eva Nilsson,8,Salesperson,Sales,2020-08-08
+34,Emma Klein,7,Salesperson,Sales,2020-01-21
+35,Anna Muller,7,Salesperson,Sales,2021-02-08
+36,Tomas Jansen,8,Salesperson,Sales,2022-06-22
+37,Piotr Brown,6,Salesperson,Sales,2022-05-26
+38,Hugo Klein,9,Salesperson,Sales,2020-01-22
+39,Tomas Smith,9,Salesperson,Sales,2022-09-06
+40,Lucia Muller,8,Salesperson,Sales,2020-04-26
+41,Ola Brown,7,Salesperson,Sales,2022-01-28
+42,Jan Nowak,7,Salesperson,Sales,2020-12-20
+43,Lena Novak,7,Salesperson,Sales,2021-06-13
+44,Lukas Muller,9,Salesperson,Sales,2020-02-29
+45,Ola Martin,7,Salesperson,Sales,2020-09-26

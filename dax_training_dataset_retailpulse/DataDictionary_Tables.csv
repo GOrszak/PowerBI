@@ -1,0 +1,27 @@
+﻿Table,Rows,File,MainPurpose
+DimDate,1461,DimDate.csv,"Calendar table for time intelligence, working days, ISO weeks and fiscal periods"
+DimGeography,35,DimGeography.csv,"Dimension, helper, bridge or additional fact table"
+DimProductCategory,6,DimProductCategory.csv,"Dimension, helper, bridge or additional fact table"
+DimProductSubcategory,20,DimProductSubcategory.csv,"Dimension, helper, bridge or additional fact table"
+DimProduct,108,DimProduct.csv,"Product attributes for filtering, ranking, ABC/Pareto and optimization demos"
+DimCustomer,2000,DimCustomer.csv,"Dimension, helper, bridge or additional fact table"
+DimStore,12,DimStore.csv,"Dimension, helper, bridge or additional fact table"
+DimEmployee,45,DimEmployee.csv,Parent-child hierarchy for managerial rollups
+DimCurrency,5,DimCurrency.csv,"Dimension, helper, bridge or additional fact table"
+FactExchangeRate,7305,FactExchangeRate.csv,Daily exchange rates for currency conversion
+FactSales,60000,FactSales.csv,Main transaction fact table for almost all DAX measures
+FactReturns,4200,FactReturns.csv,"Dimension, helper, bridge or additional fact table"
+FactInventorySnapshot,62208,FactInventorySnapshot.csv,Semi-additive inventory table for closing balance exercises
+FactBudget,3456,FactBudget.csv,Budget fact at monthly store/category grain for different-granularity exercises
+DimAccount,18,DimAccount.csv,Account hierarchy with unary operator examples
+FactFinanceLedger,7000,FactFinanceLedger.csv,"Dimension, helper, bridge or additional fact table"
+DimInterest,10,DimInterest.csv,"Dimension, helper, bridge or additional fact table"
+BridgeCustomerInterest,3966,BridgeCustomerInterest.csv,Customer side of many-to-many bridge
+BridgeProductInterest,238,BridgeProductInterest.csv,Product side of many-to-many bridge
+FactCustomerSatisfaction,9000,FactCustomerSatisfaction.csv,"Dimension, helper, bridge or additional fact table"
+FactWebSession,26000,FactWebSession.csv,"Distinct count, conversion and marketing-channel exercises"
+DimSegmentBands,4,DimSegmentBands.csv,"Dimension, helper, bridge or additional fact table"
+WhatIfDiscount,7,WhatIfDiscount.csv,"Dimension, helper, bridge or additional fact table"
+WhatIfTopN,6,WhatIfTopN.csv,"Dimension, helper, bridge or additional fact table"
+CurrencySelector,5,CurrencySelector.csv,"Dimension, helper, bridge or additional fact table"
+MetricSelector,4,MetricSelector.csv,"Dimension, helper, bridge or additional fact table"

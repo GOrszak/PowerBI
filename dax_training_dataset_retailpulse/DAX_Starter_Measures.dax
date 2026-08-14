@@ -1,0 +1,109 @@
+-- DAX Training Dataset: starter measures
+-- Create a dedicated measure table named _Measures if you like cleanliness.
+-- Humans keep putting measures in random tables. We will bravely not do that.
+
+Sales Amount :=
+SUM ( FactSales[SalesAmount] )
+
+Cost Amount :=
+SUM ( FactSales[CostAmount] )
+
+Gross Margin :=
+[Sales Amount] - [Cost Amount]
+
+Gross Margin % :=
+DIVIDE ( [Gross Margin], [Sales Amount] )
+
+Orders :=
+DISTINCTCOUNT ( FactSales[OrderNumber] )
+
+Order Lines :=
+COUNTROWS ( FactSales )
+
+Customers :=
+DISTINCTCOUNT ( FactSales[CustomerKey] )
+
+Average Order Value :=
+DIVIDE ( [Sales Amount], [Orders] )
+
+Quantity Sold :=
+SUM ( FactSales[Quantity] )
+
+Return Amount :=
+SUM ( FactReturns[ReturnAmount] )
+
+Return Rate % :=
+DIVIDE ( [Return Amount], [Sales Amount] )
+
+Sales Amount PY :=
+CALCULATE ( [Sales Amount], SAMEPERIODLASTYEAR ( DimDate[Date] ) )
+
+Sales Amount YoY % :=
+DIVIDE ( [Sales Amount] - [Sales Amount PY], [Sales Amount PY] )
+
+Sales Amount YTD :=
+TOTALYTD ( [Sales Amount], DimDate[Date] )
+
+Sales Amount Rolling 12M :=
+CALCULATE (
+    [Sales Amount],
+    DATESINPERIOD ( DimDate[Date], MAX ( DimDate[Date] ), -12, MONTH )
+)
+
+Shipped Sales Amount :=
+CALCULATE (
+    [Sales Amount],
+    USERELATIONSHIP ( DimDate[DateKey], FactSales[ShipDateKey] )
+)
+
+Delivered Sales Amount :=
+CALCULATE (
+    [Sales Amount],
+    USERELATIONSHIP ( DimDate[DateKey], FactSales[DeliveryDateKey] )
+)
+
+Closing Inventory Qty :=
+CALCULATE (
+    SUM ( FactInventorySnapshot[OnHandQuantity] ),
+    LASTNONBLANK ( DimDate[Date], CALCULATE ( SUM ( FactInventorySnapshot[OnHandQuantity] ) ) )
+)
+
+Budget Sales Amount :=
+SUM ( FactBudget[BudgetSalesAmount] )
+
+Budget Variance :=
+[Sales Amount] - [Budget Sales Amount]
+
+Budget Variance % :=
+DIVIDE ( [Budget Variance], [Budget Sales Amount] )
+
+Rank Product by Sales :=
+RANKX (
+    ALLSELECTED ( DimProduct[ProductName] ),
+    [Sales Amount],
+    ,
+    DESC
+)
+
+Selected Currency Sales :=
+VAR DisplayCurrency = SELECTEDVALUE ( CurrencySelector[DisplayCurrencyCode], "EUR" )
+RETURN
+SUMX (
+    FactSales,
+    VAR TxCurrency = FactSales[CurrencyCode]
+    VAR TxDate = FactSales[OrderDateKey]
+    VAR AmountInEUR =
+        FactSales[SalesAmount]
+            * LOOKUPVALUE (
+                FactExchangeRate[RateToEUR],
+                FactExchangeRate[CurrencyCode], TxCurrency,
+                FactExchangeRate[DateKey], TxDate
+            )
+    VAR DisplayRateToEUR =
+        LOOKUPVALUE (
+            FactExchangeRate[RateToEUR],
+            FactExchangeRate[CurrencyCode], DisplayCurrency,
+            FactExchangeRate[DateKey], TxDate
+        )
+    RETURN DIVIDE ( AmountInEUR, DisplayRateToEUR )
+)

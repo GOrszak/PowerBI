@@ -1,0 +1,35 @@
+﻿FromTable,FromColumn,ToTable,ToColumn,Cardinality,Status,CrossFilter,Purpose
+DimDate,DateKey,FactSales,OrderDateKey,1:*,Active,Single,Main order date
+DimDate,DateKey,FactSales,ShipDateKey,1:*,Inactive,Single,Use USERELATIONSHIP for shipped sales
+DimDate,DateKey,FactSales,DeliveryDateKey,1:*,Inactive,Single,Use USERELATIONSHIP for delivered sales
+DimDate,DateKey,FactReturns,ReturnDateKey,1:*,Active,Single,Returns over time
+DimDate,DateKey,FactInventorySnapshot,DateKey,1:*,Active,Single,Semi-additive inventory snapshots
+DimDate,DateKey,FactExchangeRate,DateKey,1:*,Active,Single,Daily exchange rates
+DimDate,DateKey,FactFinanceLedger,PostingDateKey,1:*,Active,Single,Ledger dates
+DimDate,MonthStartDateKey,FactBudget,MonthStartDateKey,1:*,Active,Single,Budget monthly grain
+DimProductCategory,ProductCategoryKey,DimProductSubcategory,ProductCategoryKey,1:*,Active,Single,Product hierarchy
+DimProductSubcategory,ProductSubcategoryKey,DimProduct,ProductSubcategoryKey,1:*,Active,Single,Product hierarchy
+DimProduct,ProductKey,FactSales,ProductKey,1:*,Active,Single,Product sales
+DimProduct,ProductKey,FactReturns,ProductKey,1:*,Active,Single,Product returns
+DimProduct,ProductKey,FactInventorySnapshot,ProductKey,1:*,Active,Single,Inventory by product
+DimProductCategory,ProductCategoryKey,FactBudget,ProductCategoryKey,1:*,Active,Single,Budget at category grain
+DimCustomer,CustomerKey,FactSales,CustomerKey,1:*,Active,Single,Customer sales
+DimCustomer,CustomerKey,FactReturns,CustomerKey,1:*,Active,Single,Customer returns
+DimCustomer,CustomerKey,FactCustomerSatisfaction,CustomerKey,1:*,Active,Single,Survey by customer
+DimCustomer,CustomerKey,FactWebSession,CustomerKey,1:*,Active,Single,Optional customer web sessions
+DimGeography,GeographyKey,DimCustomer,GeographyKey,1:*,Active,Single,Customer geography
+DimGeography,GeographyKey,DimStore,GeographyKey,1:*,Active,Single,Store geography
+DimStore,StoreKey,FactSales,StoreKey,1:*,Active,Single,Store sales
+DimStore,StoreKey,FactReturns,StoreKey,1:*,Active,Single,Store returns
+DimStore,StoreKey,FactInventorySnapshot,StoreKey,1:*,Active,Single,Store inventory
+DimStore,StoreKey,FactBudget,StoreKey,1:*,Active,Single,Store budget
+DimStore,StoreKey,FactFinanceLedger,StoreKey,1:*,Active,Single,Store ledger
+DimEmployee,EmployeeKey,FactSales,EmployeeKey,1:*,Active,Single,Salesperson; DimEmployee has parent-child manager field
+DimCurrency,CurrencyCode,FactSales,CurrencyCode,1:*,Active,Single,Original transaction currency
+DimCurrency,CurrencyCode,FactExchangeRate,CurrencyCode,1:*,Active,Single,Currency rates
+DimCurrency,CurrencyCode,FactFinanceLedger,CurrencyCode,1:*,Active,Single,Ledger currency
+DimAccount,AccountKey,FactFinanceLedger,AccountKey,1:*,Active,Single,Account hierarchy with unary operator
+DimCustomer,CustomerKey,BridgeCustomerInterest,CustomerKey,1:*,Active,Single,Many-to-many interest bridge
+DimInterest,InterestKey,BridgeCustomerInterest,InterestKey,1:*,Active,Single,Many-to-many interest bridge
+DimProduct,ProductKey,BridgeProductInterest,ProductKey,1:*,Active,Single,Many-to-many interest bridge
+DimInterest,InterestKey,BridgeProductInterest,InterestKey,1:*,Active,Single,Many-to-many interest bridge

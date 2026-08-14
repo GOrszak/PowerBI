@@ -1,0 +1,5 @@
+﻿SegmentBandKey,SegmentBandName,MinSalesAmount,MaxSalesAmount,SortOrder
+1,Low value,0,499.99,1
+2,Medium value,500,1999.99,2
+3,High value,2000,7999.99,3
+4,Very high value,8000,999999999,4

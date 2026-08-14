@@ -1,0 +1,109 @@
+﻿ProductKey,ProductCode,ProductName,ProductSubcategoryKey,Brand,Color,Size,ListPrice,StandardCost,AvailableForSaleDate,DiscontinuedDate,IsHighMargin,SKUHighCardinality
+1,P-0001,Tailspin Toys Road Bike White S,1,Tailspin Toys,White,XL,1180.49,572.14,2022-08-27,,True,SKU-0001-308496
+2,P-0002,Proseware Road Bike Silver S,1,Proseware,Silver,L,2051.6,1086.66,2024-02-21,,False,SKU-0002-201414
+3,P-0003,Litware Road Bike Yellow L,1,Litware,Yellow,XL,2906.17,2199.62,2023-09-26,,False,SKU-0003-301629
+4,P-0004,Contoso Road Bike Black M,1,Contoso,Black,One Size,3021.63,2292.27,2022-06-16,,False,SKU-0004-379946
+5,P-0005,Fabrikam Mountain Bike Purple Max,2,Fabrikam,Purple,M,3578.58,2726.36,2024-03-05,2025-05-11,False,SKU-0005-520651
+6,P-0006,Adventure Works Mountain Bike Blue Lite,2,Adventure Works,Blue,XL,1509.06,935.28,2022-09-29,,False,SKU-0006-665158
+7,P-0007,Adventure Works Mountain Bike Grey Max,2,Adventure Works,Grey,One Size,2369.88,1821.51,2022-06-06,,False,SKU-0007-542666
+8,P-0008,Contoso Mountain Bike Green Max,2,Contoso,Green,One Size,2141.2,1503.62,2023-07-04,,False,SKU-0008-456699
+9,P-0009,Adventure Works Touring Bike Green Lite,3,Adventure Works,Green,XL,1098.45,537.55,2023-10-03,,True,SKU-0009-738551
+10,P-0010,Northwind Touring Bike Red Max,3,Northwind,Red,M,1936.34,951.5,2023-01-07,,True,SKU-0010-351083
+11,P-0011,Tailspin Toys Touring Bike Silver M,3,Tailspin Toys,Silver,M,4327.62,2153.01,2023-05-02,,True,SKU-0011-653306
+12,P-0012,Proseware Touring Bike Silver M,3,Proseware,Silver,XS,3930.94,3077.36,2023-04-08,,False,SKU-0012-454508
+13,P-0013,Northwind Helmet Grey Pro,4,Northwind,Grey,S,14.01,7.54,2023-11-17,,True,SKU-0013-858490
+14,P-0014,A. Datum Helmet Silver Lite,4,A. Datum,Silver,XS,102.06,73.46,2023-11-21,,True,SKU-0014-163556
+15,P-0015,Proseware Helmet Yellow Max,4,Proseware,Yellow,XL,20.95,16.21,2022-03-19,,False,SKU-0015-202664
+16,P-0016,Tailspin Toys Helmet Purple S,4,Tailspin Toys,Purple,L,109.01,65.23,2022-03-02,,True,SKU-0016-378085
+17,P-0017,Adventure Works Lock Green Lite,5,Adventure Works,Green,M,84.17,39.7,2024-01-24,,True,SKU-0017-159942
+18,P-0018,Tailspin Toys Lock Grey Pro,5,Tailspin Toys,Grey,S,97.37,46.26,2022-08-29,,True,SKU-0018-707040
+19,P-0019,Tailspin Toys Lock Grey L,5,Tailspin Toys,Grey,L,79.64,43.66,2022-05-15,,True,SKU-0019-431535
+20,P-0020,Contoso Lock Black M,5,Contoso,Black,L,146.58,113.73,2022-09-08,,False,SKU-0020-974244
+21,P-0021,Adventure Works Lock Grey Lite,5,Adventure Works,Grey,XL,87.71,67.97,2022-09-28,2024-02-19,True,SKU-0021-262998
+22,P-0022,Adventure Works Lock White Max,5,Adventure Works,White,M,107.12,81.74,2022-04-05,,True,SKU-0022-146228
+23,P-0023,Tailspin Toys Lock Yellow Pro,5,Tailspin Toys,Yellow,XS,67.76,32.38,2023-12-09,,True,SKU-0023-975136
+24,P-0024,Fabrikam Light Green Pro,6,Fabrikam,Green,L,39.72,21.54,2022-04-16,,True,SKU-0024-750810
+25,P-0025,Fabrikam Light Silver Max,6,Fabrikam,Silver,S,115.33,91.62,2023-11-17,,False,SKU-0025-379766
+26,P-0026,Fabrikam Light Blue XL,6,Fabrikam,Blue,M,14.54,11.23,2022-08-17,2024-04-05,False,SKU-0026-392136
+27,P-0027,Contoso Light White L,6,Contoso,White,XS,78.12,42.7,2023-08-18,,True,SKU-0027-213668
+28,P-0028,Proseware Light Yellow Max,6,Proseware,Yellow,XL,41.06,29.25,2022-01-02,,True,SKU-0028-820221
+29,P-0029,Northwind Light Yellow XL,6,Northwind,Yellow,One Size,138.27,88.17,2023-11-14,,True,SKU-0029-410016
+30,P-0030,Northwind Bottle Green Pro,7,Northwind,Green,XL,59.72,33.59,2022-08-04,,True,SKU-0030-786508
+31,P-0031,Litware Bottle Orange L,7,Litware,Orange,XS,93.17,51.71,2023-11-11,,True,SKU-0031-958179
+32,P-0032,Northwind Bottle White Lite,7,Northwind,White,One Size,26.64,16.07,2023-10-07,,True,SKU-0032-502630
+33,P-0033,A. Datum Bottle Green S,7,A. Datum,Green,XL,83.11,42.81,2023-12-14,,True,SKU-0033-361303
+34,P-0034,Contoso Bottle Orange Pro,7,Contoso,Orange,L,61.66,46.34,2023-06-01,,True,SKU-0034-266889
+35,P-0035,A. Datum Jersey White L,8,A. Datum,White,XL,90.78,64.82,2022-08-29,,False,SKU-0035-184491
+36,P-0036,Fabrikam Jersey Red Max,8,Fabrikam,Red,XL,205.5,108.2,2023-03-07,,True,SKU-0036-829308
+37,P-0037,Tailspin Toys Jersey Grey M,8,Tailspin Toys,Grey,L,110.12,80.01,2023-07-14,,False,SKU-0037-330080
+38,P-0038,Adventure Works Jersey Green Pro,8,Adventure Works,Green,XL,234.13,190.32,2023-07-01,2025-09-11,False,SKU-0038-795205
+39,P-0039,Tailspin Toys Jersey Blue Max,8,Tailspin Toys,Blue,L,134.7,98.55,2023-01-24,,False,SKU-0039-364525
+40,P-0040,Contoso Jersey Orange S,8,Contoso,Orange,XL,310.97,226.72,2022-09-11,,False,SKU-0040-259784
+41,P-0041,Northwind Jersey Red L,8,Northwind,Red,XS,290.74,234.51,2024-01-06,2025-07-26,False,SKU-0041-706794
+42,P-0042,Adventure Works Short Grey Lite,9,Adventure Works,Grey,XL,132.23,64.49,2024-03-02,,True,SKU-0042-944657
+43,P-0043,Contoso Short Grey L,9,Contoso,Grey,One Size,152.92,115.34,2022-04-19,,False,SKU-0043-968962
+44,P-0044,A. Datum Short Red L,9,A. Datum,Red,S,282.61,172.72,2024-01-19,,True,SKU-0044-971084
+45,P-0045,Contoso Short White L,9,Contoso,White,M,164.45,85.07,2022-08-06,,True,SKU-0045-393243
+46,P-0046,Tailspin Toys Glove Purple XL,10,Tailspin Toys,Purple,One Size,228.12,144.08,2022-01-18,2023-10-06,True,SKU-0046-355123
+47,P-0047,Adventure Works Glove Grey M,10,Adventure Works,Grey,M,109.44,61.66,2022-08-25,,True,SKU-0047-225362
+48,P-0048,Fabrikam Glove Silver L,10,Fabrikam,Silver,XS,184.29,96.17,2022-08-21,,True,SKU-0048-842411
+49,P-0049,Fabrikam Glove White XL,10,Fabrikam,White,M,82.35,37.43,2022-10-19,,True,SKU-0049-293319
+50,P-0050,Tailspin Toys Glove White S,10,Tailspin Toys,White,S,202.92,102.52,2023-07-31,,True,SKU-0050-224205
+51,P-0051,Proseware Glove Grey Pro,10,Proseware,Grey,One Size,239.4,145.71,2023-08-06,,True,SKU-0051-204053
+52,P-0052,Northwind Jacket White L,11,Northwind,White,One Size,66.4,37.04,2022-08-26,,True,SKU-0052-576086
+53,P-0053,Contoso Jacket Silver S,11,Contoso,Silver,XS,192.89,133.02,2022-09-30,,False,SKU-0053-273982
+54,P-0054,Adventure Works Jacket Grey Pro,11,Adventure Works,Grey,XS,112.25,71.3,2023-05-21,,False,SKU-0054-553014
+55,P-0055,Litware Jacket Grey Max,11,Litware,Grey,S,337.34,235.71,2022-10-03,,False,SKU-0055-593355
+56,P-0056,A. Datum Jacket White Lite,11,A. Datum,White,L,180.16,125.74,2022-06-14,,False,SKU-0056-402218
+57,P-0057,Tailspin Toys Tire Orange M,12,Tailspin Toys,Orange,XL,317.3,244.85,2023-04-19,,False,SKU-0057-479353
+58,P-0058,A. Datum Tire Orange Lite,12,A. Datum,Orange,S,400.77,324.65,2023-09-16,,False,SKU-0058-425845
+59,P-0059,Tailspin Toys Tire Purple L,12,Tailspin Toys,Purple,L,57.73,45.9,2022-10-26,,False,SKU-0059-975271
+60,P-0060,A. Datum Tire Orange Max,12,A. Datum,Orange,XL,529.99,292.67,2023-03-01,,True,SKU-0060-380150
+61,P-0061,Tailspin Toys Tire White XL,12,Tailspin Toys,White,M,334.18,191.49,2024-02-21,,True,SKU-0061-297816
+62,P-0062,Northwind Tire Grey XL,12,Northwind,Grey,XS,159.94,130.47,2023-10-30,,False,SKU-0062-232378
+63,P-0063,Litware Tire Blue L,12,Litware,Blue,M,249.91,126.73,2023-04-26,,True,SKU-0063-753534
+64,P-0064,Contoso Chain Yellow Lite,13,Contoso,Yellow,M,190.43,88.22,2022-03-12,,True,SKU-0064-338536
+65,P-0065,Contoso Chain Green L,13,Contoso,Green,L,49.32,28.11,2022-02-27,,True,SKU-0065-252640
+66,P-0066,Northwind Chain Purple XL,13,Northwind,Purple,One Size,103.66,65.73,2023-08-21,,True,SKU-0066-366314
+67,P-0067,A. Datum Chain White XL,13,A. Datum,White,One Size,178.3,145.39,2022-11-03,,True,SKU-0067-362246
+68,P-0068,A. Datum Chain White S,13,A. Datum,White,XL,151.5,84.72,2023-11-06,,True,SKU-0068-819112
+69,P-0069,Tailspin Toys Chain Grey Lite,13,Tailspin Toys,Grey,One Size,351.22,182.76,2022-09-14,,True,SKU-0069-813928
+70,P-0070,Fabrikam Chain Blue M,13,Fabrikam,Blue,S,192.44,107.61,2024-02-05,,True,SKU-0070-924718
+71,P-0071,Adventure Works Pedal Red M,14,Adventure Works,Red,One Size,348.61,281.07,2022-05-25,,False,SKU-0071-859396
+72,P-0072,Proseware Pedal Purple S,14,Proseware,Purple,One Size,293.37,195.47,2023-10-16,,True,SKU-0072-345180
+73,P-0073,A. Datum Pedal Black M,14,A. Datum,Black,XS,307.33,218.02,2023-10-27,,True,SKU-0073-139019
+74,P-0074,Adventure Works Pedal Orange M,14,Adventure Works,Orange,L,217.44,141.31,2023-08-25,,True,SKU-0074-786735
+75,P-0075,Contoso Pedal Orange Lite,14,Contoso,Orange,M,315.85,184.52,2023-12-04,,True,SKU-0075-163491
+76,P-0076,Proseware Pedal White M,14,Proseware,White,XL,243.6,111.54,2022-12-08,,True,SKU-0076-315173
+77,P-0077,Northwind Brake Grey Max,15,Northwind,Grey,S,94.69,47.68,2022-05-14,,True,SKU-0077-215266
+78,P-0078,Tailspin Toys Brake Red Max,15,Tailspin Toys,Red,M,185.96,119.88,2024-02-03,2026-06-11,True,SKU-0078-638169
+79,P-0079,Contoso Brake Orange Max,15,Contoso,Orange,L,390.68,315.16,2022-03-04,,False,SKU-0079-546980
+80,P-0080,Contoso Brake Orange Pro,15,Contoso,Orange,XL,177.49,118.31,2023-12-31,,True,SKU-0080-409222
+81,P-0081,Proseware Repair Blue XL,16,Proseware,Blue,L,351.84,273.94,2023-02-28,,False,SKU-0081-536196
+82,P-0082,Contoso Repair Yellow L,16,Contoso,Yellow,S,657.71,318.66,2022-04-09,,True,SKU-0082-683397
+83,P-0083,Tailspin Toys Repair Grey Pro,16,Tailspin Toys,Grey,M,538.08,424.47,2022-02-22,,False,SKU-0083-468727
+84,P-0084,Contoso Repair Grey Max,16,Contoso,Grey,XL,205.68,113.76,2022-08-20,,True,SKU-0084-904711
+85,P-0085,Tailspin Toys Repair Grey XL,16,Tailspin Toys,Grey,XS,424.48,191.97,2022-05-27,,True,SKU-0085-248766
+86,P-0086,Tailspin Toys Repair Blue M,16,Tailspin Toys,Blue,S,279.66,184.58,2022-03-28,,False,SKU-0086-891083
+87,P-0087,Tailspin Toys Repair Blue Pro,16,Tailspin Toys,Blue,L,166.3,101.29,2022-10-18,,True,SKU-0087-652530
+88,P-0088,Tailspin Toys Maintenance Plan Silver XL,17,Tailspin Toys,Silver,S,143.22,81.84,2022-01-08,,True,SKU-0088-235461
+89,P-0089,Proseware Maintenance Plan Purple Pro,17,Proseware,Purple,L,61.62,28.16,2022-03-21,,True,SKU-0089-701253
+90,P-0090,Proseware Maintenance Plan Green M,17,Proseware,Green,L,641.89,374.79,2023-03-24,,True,SKU-0090-717476
+91,P-0091,Proseware Maintenance Plan Purple L,17,Proseware,Purple,M,523.07,338.07,2022-07-18,,False,SKU-0091-862712
+92,P-0092,Fabrikam Maintenance Plan Silver Max,17,Fabrikam,Silver,XL,569.38,388.51,2023-04-21,,False,SKU-0092-570711
+93,P-0093,Litware Maintenance Plan Yellow Max,17,Litware,Yellow,M,196.44,110.96,2023-04-08,2025-05-24,True,SKU-0093-180458
+94,P-0094,Proseware Bike Computer Orange S,18,Proseware,Orange,L,446.94,301.17,2023-05-29,,False,SKU-0094-208529
+95,P-0095,Litware Bike Computer Blue Max,18,Litware,Blue,M,408.18,239.99,2022-10-17,,True,SKU-0095-811875
+96,P-0096,Tailspin Toys Bike Computer Yellow M,18,Tailspin Toys,Yellow,M,661.87,511.7,2022-12-08,2025-11-21,False,SKU-0096-425301
+97,P-0097,Proseware Bike Computer Red Pro,18,Proseware,Red,XS,739.87,559.87,2024-01-27,,False,SKU-0097-777406
+98,P-0098,Litware Sensor Black Pro,19,Litware,Black,One Size,206.02,98.59,2022-04-14,,True,SKU-0098-652108
+99,P-0099,Tailspin Toys Sensor Yellow XL,19,Tailspin Toys,Yellow,M,629.92,493.85,2024-01-09,,False,SKU-0099-809217
+100,P-0100,Northwind Sensor Orange Pro,19,Northwind,Orange,L,901.37,707.1,2022-07-18,,False,SKU-0100-584106
+101,P-0101,Adventure Works Sensor Green S,19,Adventure Works,Green,One Size,614.85,386.01,2023-01-16,,True,SKU-0101-986982
+102,P-0102,Contoso Sensor White XL,19,Contoso,White,XS,155.26,116.78,2022-12-24,,False,SKU-0102-515712
+103,P-0103,Litware Sensor Silver Max,19,Litware,Silver,L,579.53,292.11,2022-02-09,,True,SKU-0103-829884
+104,P-0104,Fabrikam Sensor Orange M,19,Fabrikam,Orange,M,531.79,343.15,2022-04-24,,True,SKU-0104-227767
+105,P-0105,Northwind GPS Green XL,20,Northwind,Green,XS,503.62,333.78,2024-01-06,,False,SKU-0105-744674
+106,P-0106,Litware GPS Silver XL,20,Litware,Silver,L,817.29,605.59,2023-06-04,,False,SKU-0106-145649
+107,P-0107,Proseware GPS Yellow L,20,Proseware,Yellow,XL,608.16,439.1,2022-12-07,,False,SKU-0107-454992
+108,P-0108,Fabrikam GPS Orange L,20,Fabrikam,Orange,M,655.75,344.0,2022-07-24,,True,SKU-0108-640418
