@@ -1,0 +1,34 @@
+table WhatIfTopN
+	lineageTag: bf311d38-89b0-44d1-973e-fa8093acb163
+
+	column TopN
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c1df046-a3f7-4f15-a8be-67a845267a12
+		summarizeBy: sum
+		sourceColumn: TopN
+
+		annotation SummarizationSetBy = Automatic
+
+	column TopNLabel
+		dataType: string
+		lineageTag: 3221b93b-2539-4747-9872-15b44efba4fa
+		summarizeBy: none
+		sourceColumn: TopNLabel
+
+		annotation SummarizationSetBy = Automatic
+
+	partition WhatIfTopN = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[WhatIfTopN],
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"TopN", Int64.Type}, {"TopNLabel", type text}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

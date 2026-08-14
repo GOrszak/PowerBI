@@ -1,0 +1,120 @@
+table DimProduct
+	lineageTag: 4fea5732-8fb7-41d4-adf7-6aff1dff6777
+
+	column ProductKey
+		dataType: string
+		lineageTag: 8a4639aa-b0f9-43e3-9668-43dbb93c2c19
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCode
+		dataType: string
+		lineageTag: 869a2c1e-dbb2-49bc-8c1c-bade5f5f4d43
+		summarizeBy: none
+		sourceColumn: ProductCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: fc591684-2e43-4fdf-a8fd-c4183f3159d7
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoryKey
+		dataType: string
+		lineageTag: 6d071d53-a6b6-4ac4-8422-5702c3ce7a8b
+		summarizeBy: none
+		sourceColumn: ProductSubcategoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Brand
+		dataType: string
+		lineageTag: ccf1d3ef-baa5-4de2-80fe-d24c386a40fc
+		summarizeBy: none
+		sourceColumn: Brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column Color
+		dataType: string
+		lineageTag: f72d0141-01e7-474b-a7c4-e5be449ea410
+		summarizeBy: none
+		sourceColumn: Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column Size
+		dataType: string
+		lineageTag: 9ef31cb7-7e59-480b-be9c-b46a1979c487
+		summarizeBy: none
+		sourceColumn: Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column ListPrice
+		dataType: string
+		lineageTag: 81453f6e-2dbb-47da-bcb6-be287c37d33d
+		summarizeBy: none
+		sourceColumn: ListPrice
+
+		annotation SummarizationSetBy = Automatic
+
+	column StandardCost
+		dataType: string
+		lineageTag: c91854d4-a98a-4bfb-8916-ca00df09d893
+		summarizeBy: none
+		sourceColumn: StandardCost
+
+		annotation SummarizationSetBy = Automatic
+
+	column AvailableForSaleDate
+		dataType: string
+		lineageTag: a76c6d54-c9fe-484a-b990-852e069f2ea4
+		summarizeBy: none
+		sourceColumn: AvailableForSaleDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiscontinuedDate
+		dataType: string
+		lineageTag: 46555e2d-e1e5-4a7a-8581-c82ddb9004f6
+		summarizeBy: none
+		sourceColumn: DiscontinuedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsHighMargin
+		dataType: string
+		lineageTag: 3407a66b-3c65-4a0f-832b-f71faa87190e
+		summarizeBy: none
+		sourceColumn: IsHighMargin
+
+		annotation SummarizationSetBy = Automatic
+
+	column SKUHighCardinality
+		dataType: string
+		lineageTag: e1fe7b35-c9f2-4971-9bfd-17d14a6f836e
+		summarizeBy: none
+		sourceColumn: SKUHighCardinality
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProduct = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[DimProduct]
+				in
+				  Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

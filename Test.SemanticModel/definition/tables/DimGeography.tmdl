@@ -1,0 +1,74 @@
+table DimGeography
+	lineageTag: b1e6be93-5523-4581-a1e9-66485ade8a62
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b35edd86-eef3-4d2c-8a67-8d08233566b3
+		summarizeBy: none
+		sourceColumn: GeographyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryCode
+		dataType: string
+		lineageTag: 6e64cfd9-160e-4474-a93c-abeb78d31c5d
+		summarizeBy: none
+		sourceColumn: CountryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: cd9a2a36-a0d7-4fde-9658-698409fbb2c2
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: a2ae20f6-f130-482f-85f7-3612bb4cabed
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvince
+		dataType: string
+		lineageTag: 40b7b6f3-fc56-423b-be83-97020f4d7c13
+		summarizeBy: none
+		sourceColumn: StateProvince
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 97459f85-d188-4021-b757-f0cc639595a5
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyCode
+		dataType: string
+		lineageTag: 26b48a89-36aa-428a-8147-7b8395202e89
+		summarizeBy: none
+		sourceColumn: CurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimGeography = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[DimGeography],
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"GeographyKey", Int64.Type}, {"CountryCode", type text}, {"Country", type text}, {"Region", type text}, {"StateProvince", type text}, {"City", type text}, {"CurrencyCode", type text}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

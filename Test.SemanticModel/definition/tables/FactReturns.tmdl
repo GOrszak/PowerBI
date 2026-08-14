@@ -1,0 +1,107 @@
+table FactReturns
+	lineageTag: a3fd096a-072f-4393-af63-d2c1876a1db0
+
+	column ReturnID
+		dataType: int64
+		formatString: 0
+		lineageTag: b80b669d-cb2a-4263-b881-6d15b36363c1
+		summarizeBy: count
+		sourceColumn: ReturnID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderLineID
+		dataType: int64
+		formatString: 0
+		lineageTag: 6779ae47-80fb-43ea-acd9-04686203bf52
+		summarizeBy: count
+		sourceColumn: OrderLineID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a4b13406-022e-4d50-b634-3222edf6fc57
+		summarizeBy: count
+		sourceColumn: ReturnDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: d49858cc-6e83-4e3c-8bd5-53801ab75ce2
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: d1d3dfd4-ba6e-4923-ae62-d4ec76d2d658
+		summarizeBy: count
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreKey
+		dataType: int64
+		formatString: 0
+		lineageTag: cb213df2-9d27-4e16-a5da-ceb520f6003b
+		summarizeBy: count
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnedQuantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c655cb2-0d39-41a5-878a-0e9698a90ca0
+		summarizeBy: sum
+		sourceColumn: ReturnedQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnAmount
+		dataType: double
+		lineageTag: 5a14e968-6661-4407-9a21-349af26e9057
+		summarizeBy: sum
+		sourceColumn: ReturnAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ReturnReason
+		dataType: string
+		lineageTag: 40df0198-0453-43af-9b7c-5cebfbc2f60f
+		summarizeBy: none
+		sourceColumn: ReturnReason
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsResellable
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 018cd382-c0d1-4b6d-8f1f-bd8866de7497
+		summarizeBy: none
+		sourceColumn: IsResellable
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactReturns = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[FactReturns],
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"ReturnID", Int64.Type}, {"OrderLineID", Int64.Type}, {"ReturnDateKey", Int64.Type}, {"CustomerKey", Int64.Type}, {"ProductKey", Int64.Type}, {"StoreKey", Int64.Type}, {"ReturnedQuantity", Int64.Type}, {"ReturnAmount", type number}, {"ReturnReason", type text}, {"IsResellable", type logical}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

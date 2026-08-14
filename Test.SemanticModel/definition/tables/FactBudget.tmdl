@@ -1,0 +1,82 @@
+table FactBudget
+	lineageTag: 0079f50f-ff9a-49f4-b8b1-cddb4aaa280f
+
+	column BudgetID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c640809-c981-427f-ae6f-8806eacb3981
+		summarizeBy: count
+		sourceColumn: BudgetID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthStartDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: c87f2d76-0124-468c-9fb4-4832b04275f4
+		summarizeBy: count
+		sourceColumn: MonthStartDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c671344-f796-4620-8259-f16cc0f268ac
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 1fcff455-14ae-4682-bc4f-2004220a5538
+		summarizeBy: none
+		sourceColumn: ProductCategoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column BudgetSalesAmount
+		dataType: double
+		lineageTag: ca8fcb57-f143-498a-8e39-16f6a5f3c584
+		summarizeBy: sum
+		sourceColumn: BudgetSalesAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BudgetGrossMarginAmount
+		dataType: double
+		lineageTag: 8e63b961-f2af-489c-8191-f7830b5f90a4
+		summarizeBy: sum
+		sourceColumn: BudgetGrossMarginAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BudgetUnits
+		dataType: int64
+		formatString: 0
+		lineageTag: 93c328c2-09d8-4e1b-98f0-0b634489c25b
+		summarizeBy: sum
+		sourceColumn: BudgetUnits
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactBudget = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[FactBudget],
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"BudgetID", Int64.Type}, {"MonthStartDateKey", Int64.Type}, {"StoreKey", Int64.Type}, {"ProductCategoryKey", Int64.Type}, {"BudgetSalesAmount", type number}, {"BudgetGrossMarginAmount", type number}, {"BudgetUnits", Int64.Type}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,42 @@
+table MetricSelector
+	lineageTag: b3a667d3-9bf3-425b-b76d-8b5b4b7b8e1b
+
+	column MetricKey
+		dataType: int64
+		formatString: 0
+		lineageTag: ebcbb453-b068-40a6-849b-89a4642c5edc
+		summarizeBy: count
+		sourceColumn: MetricKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column MetricName
+		dataType: string
+		lineageTag: 372c6ead-9e43-4494-af51-d02930248181
+		summarizeBy: none
+		sourceColumn: MetricName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MeasureName
+		dataType: string
+		lineageTag: 45b29a19-7a49-4dbb-a959-f8b029f5a274
+		summarizeBy: none
+		sourceColumn: MeasureName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MetricSelector = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[MetricSelector],
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"MetricKey", Int64.Type}, {"MetricName", type text}, {"MeasureName", type text}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

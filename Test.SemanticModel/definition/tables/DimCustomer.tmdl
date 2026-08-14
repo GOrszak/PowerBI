@@ -1,0 +1,122 @@
+table DimCustomer
+	lineageTag: 8efbcb92-b02e-4d03-a03c-1409b9dfb309
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: ceb94904-60de-4441-a082-7bd463b62485
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerCode
+		dataType: string
+		lineageTag: 12b8d17e-a967-4a52-8b61-82942ec935a9
+		summarizeBy: none
+		sourceColumn: CustomerCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: 4aee6187-b7ca-42bb-ab98-71790c2082ef
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: 568e52fd-121c-4839-b98b-f097607c8540
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FullName
+		dataType: string
+		lineageTag: ea5aab28-9678-4c29-990b-cd72919a2118
+		summarizeBy: none
+		sourceColumn: FullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 704ee5db-3e63-4237-902d-ef76969a5d9c
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3078f41a-9b74-47aa-a38d-357587a7c353
+		summarizeBy: none
+		sourceColumn: BirthDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column JoinDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a0c58057-53f6-4917-a090-e4564c319789
+		summarizeBy: none
+		sourceColumn: JoinDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CustomerSegment
+		dataType: string
+		lineageTag: 96659920-6cd2-44d0-96a7-18a4dcce94da
+		summarizeBy: none
+		sourceColumn: CustomerSegment
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e0dcc68-dad0-4417-84be-f24e3353f0b1
+		summarizeBy: none
+		sourceColumn: GeographyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailHighCardinality
+		dataType: string
+		lineageTag: 0ea2ee76-8367-4509-9900-0512dab24ee1
+		summarizeBy: none
+		sourceColumn: EmailHighCardinality
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsNewsletterSubscriber
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 89392c88-0bcc-4966-b144-47f35c0e684a
+		summarizeBy: none
+		sourceColumn: IsNewsletterSubscriber
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCustomer = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[DimCustomer],
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"CustomerKey", Int64.Type}, {"CustomerCode", type text}, {"FirstName", type text}, {"LastName", type text}, {"FullName", type text}, {"Gender", type text}, {"BirthDate", type date}, {"JoinDate", type date}, {"CustomerSegment", type text}, {"GeographyKey", Int64.Type}, {"EmailHighCardinality", type text}, {"IsNewsletterSubscriber", type logical}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,37 @@
+table WhatIfDiscount
+	lineageTag: 38fdbe30-62dd-4895-a1ec-441f8ab66fa1
+
+	column DiscountPct
+		dataType: double
+		lineageTag: 6d5b2b9c-2741-4509-bb5f-97d30e66c6cc
+		summarizeBy: sum
+		sourceColumn: DiscountPct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DiscountLabel
+		dataType: double
+		lineageTag: aadec56b-ecb3-47c1-aee8-ce0eb8b5f701
+		summarizeBy: sum
+		sourceColumn: DiscountLabel
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition WhatIfDiscount = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[WhatIfDiscount],
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"DiscountPct", type number}, {"DiscountLabel", Percentage.Type}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

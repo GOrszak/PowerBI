@@ -1,0 +1,80 @@
+table DimStore
+	lineageTag: b566e0af-87c8-4afa-8031-570eed4e1302
+
+	column StoreKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 28b57a50-734f-4d19-9a7c-35e7612f5131
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreName
+		dataType: string
+		lineageTag: 037e4d16-7bb7-486b-ba95-58d6fc6de259
+		summarizeBy: none
+		sourceColumn: StoreName
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreType
+		dataType: string
+		lineageTag: 947b334e-1648-43dc-8fdb-d67dc066f176
+		summarizeBy: none
+		sourceColumn: StoreType
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 3998dc1f-7c4e-48f7-b3d8-66dbb535a469
+		summarizeBy: none
+		sourceColumn: GeographyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpenDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e3b4ffa7-d34e-4b7a-8883-a07caeba97e6
+		summarizeBy: none
+		sourceColumn: OpenDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FloorSizeSqM
+		dataType: int64
+		formatString: 0
+		lineageTag: 272e4b86-d5a1-41ec-9a38-dcda1d1bc50a
+		summarizeBy: sum
+		sourceColumn: FloorSizeSqM
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsOnline
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f0a3c953-104d-470b-b1a6-4f7990a8868a
+		summarizeBy: none
+		sourceColumn: IsOnline
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimStore = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[DimStore],
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"StoreKey", Int64.Type}, {"StoreName", type text}, {"StoreType", type text}, {"GeographyKey", Int64.Type}, {"OpenDate", type date}, {"FloorSizeSqM", Int64.Type}, {"IsOnline", type logical}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
