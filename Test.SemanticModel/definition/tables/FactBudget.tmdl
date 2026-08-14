@@ -14,7 +14,7 @@ table FactBudget
 		dataType: int64
 		formatString: 0
 		lineageTag: c87f2d76-0124-468c-9fb4-4832b04275f4
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: MonthStartDateKey
 
 		annotation SummarizationSetBy = Automatic
@@ -23,7 +23,7 @@ table FactBudget
 		dataType: int64
 		formatString: 0
 		lineageTag: 7c671344-f796-4620-8259-f16cc0f268ac
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: StoreKey
 
 		annotation SummarizationSetBy = Automatic

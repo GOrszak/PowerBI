@@ -14,7 +14,7 @@ table BridgeProductInterest
 		dataType: int64
 		formatString: 0
 		lineageTag: b0e498d0-58db-4158-8cab-4664e3fba5c3
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: InterestKey
 
 		annotation SummarizationSetBy = Automatic

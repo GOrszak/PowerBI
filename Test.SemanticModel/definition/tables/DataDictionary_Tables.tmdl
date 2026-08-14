@@ -13,7 +13,7 @@ table DataDictionary_Tables
 		dataType: int64
 		formatString: 0
 		lineageTag: 7c202df4-8d0a-470d-ad87-07fb6c120f09
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Rows
 
 		annotation SummarizationSetBy = Automatic

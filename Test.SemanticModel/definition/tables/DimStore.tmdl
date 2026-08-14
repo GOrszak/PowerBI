@@ -26,15 +26,6 @@ table DimStore
 
 		annotation SummarizationSetBy = Automatic
 
-	column GeographyKey
-		dataType: int64
-		formatString: 0
-		lineageTag: 3998dc1f-7c4e-48f7-b3d8-66dbb535a469
-		summarizeBy: none
-		sourceColumn: GeographyKey
-
-		annotation SummarizationSetBy = Automatic
-
 	column OpenDate
 		dataType: dateTime
 		formatString: Long Date
@@ -50,7 +41,7 @@ table DimStore
 		dataType: int64
 		formatString: 0
 		lineageTag: 272e4b86-d5a1-41ec-9a38-dcda1d1bc50a
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: FloorSizeSqM
 
 		annotation SummarizationSetBy = Automatic
@@ -70,9 +61,10 @@ table DimStore
 		source =
 				let
 				  Source = CsvTables[DimStore],
-				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"StoreKey", Int64.Type}, {"StoreName", type text}, {"StoreType", type text}, {"GeographyKey", Int64.Type}, {"OpenDate", type date}, {"FloorSizeSqM", Int64.Type}, {"IsOnline", type logical}})
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"StoreKey", Int64.Type}, {"StoreName", type text}, {"StoreType", type text}, {"GeographyKey", Int64.Type}, {"OpenDate", type date}, {"FloorSizeSqM", Int64.Type}, {"IsOnline", type logical}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"GeographyKey"})
 				in
-				  #"Changed Type"
+				  #"Removed Columns"
 
 	annotation PBI_NavigationStepName = Navigation
 

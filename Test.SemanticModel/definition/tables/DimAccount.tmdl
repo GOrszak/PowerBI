@@ -5,7 +5,7 @@ table DimAccount
 		dataType: int64
 		formatString: 0
 		lineageTag: 6a89db72-a45f-4cce-8b92-bcbe8bed04c4
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: AccountKey
 
 		annotation SummarizationSetBy = Automatic
@@ -22,7 +22,7 @@ table DimAccount
 		dataType: int64
 		formatString: 0
 		lineageTag: 87e20af5-7e16-4c33-87da-05ea4da7382b
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: ParentAccountKey
 
 		annotation SummarizationSetBy = Automatic
@@ -31,7 +31,7 @@ table DimAccount
 		dataType: int64
 		formatString: 0
 		lineageTag: e95805d0-d940-43d6-8452-09b66d047872
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: AccountLevel
 
 		annotation SummarizationSetBy = Automatic

@@ -23,7 +23,7 @@ table FactReturns
 		dataType: int64
 		formatString: 0
 		lineageTag: a4b13406-022e-4d50-b634-3222edf6fc57
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: ReturnDateKey
 
 		annotation SummarizationSetBy = Automatic
@@ -41,7 +41,7 @@ table FactReturns
 		dataType: int64
 		formatString: 0
 		lineageTag: d1d3dfd4-ba6e-4923-ae62-d4ec76d2d658
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: ProductKey
 
 		annotation SummarizationSetBy = Automatic

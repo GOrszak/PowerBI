@@ -1,109 +1,82 @@
-relationship AutoDetected_b462bbd2-1d04-418b-af4c-1ee6ae02f264
-	fromColumn: FactSales.ProductKey
-	toColumn: DimProduct.ProductKey
-
-relationship AutoDetected_d3ccb3f2-ecab-4adf-80d2-895f89285f87
-	fromColumn: FactSales.CurrencyCode
-	toColumn: DimCurrency.CurrencyCode
-
-relationship AutoDetected_6854a8b5-a8b0-4e3d-a15d-b26ae373c0a0
-	fromColumn: DimGeography.CurrencyCode
-	toColumn: DimCurrency.CurrencyCode
-
-relationship AutoDetected_cfc8a55c-293d-43d2-a4cb-0334cc60699a
-	fromColumn: FactExchangeRate.CurrencyCode
-	toColumn: DimCurrency.CurrencyCode
-
-relationship AutoDetected_3db91edb-3007-4abd-a5be-55b3cfeebd75
-	fromColumn: FactFinanceLedger.CurrencyCode
-	toColumn: DimCurrency.CurrencyCode
-
-relationship AutoDetected_bf0619a3-8de1-4217-91cc-43be0edf7a57
-	fromColumn: BridgeCustomerInterest.CustomerKey
-	toColumn: DimCustomer.CustomerKey
-
-relationship AutoDetected_bb2c5117-781f-49b3-8d8d-9d138983d478
-	fromColumn: FactCustomerSatisfaction.CustomerKey
-	toColumn: DimCustomer.CustomerKey
-
-relationship AutoDetected_60e01894-8aaa-4e15-90bb-9c224faf59ca
-	fromColumn: FactReturns.CustomerKey
-	toColumn: DimCustomer.CustomerKey
-
-relationship AutoDetected_9c351ad5-f2c1-4599-a6aa-35b1fa68e31b
-	fromColumn: FactWebSession.CustomerKey
-	toColumn: DimCustomer.CustomerKey
-
-relationship AutoDetected_93d9e3a4-47cf-4d4f-a486-16b6bd8f94ea
-	fromColumn: BridgeCustomerInterest.InterestKey
-	toColumn: DimInterest.InterestKey
-
-relationship AutoDetected_95056204-de19-46e9-84c9-fa32b758ffa0
-	fromColumn: BridgeProductInterest.InterestKey
-	toColumn: DimInterest.InterestKey
-
-relationship AutoDetected_10754cab-9187-4000-bc39-05ddb485e7dc
-	fromColumn: DataDictionary_Columns.Table
-	toColumn: DataDictionary_Tables.Table
-
-relationship AutoDetected_5dc8979f-0b77-43bd-bc14-b22102f6d66c
-	fromColumn: FactFinanceLedger.AccountKey
-	toColumn: DimAccount.AccountKey
-
-relationship AutoDetected_03722d49-7303-4b3f-8143-349e9032d7d4
-	fromColumn: DimCustomer.GeographyKey
-	toColumn: DimGeography.GeographyKey
-
-relationship AutoDetected_78c07074-0430-48c1-a0bf-2177b8c2d654
-	fromColumn: DimStore.GeographyKey
-	toColumn: DimGeography.GeographyKey
-
-relationship AutoDetected_160704c4-66bb-4d7a-91cb-c7186554723e
-	fromColumn: DimProductSubcategory.ProductCategoryKey
-	toColumn: DimProductCategory.ProductCategoryKey
-
-relationship AutoDetected_1bae48fc-2708-475d-b460-dbf16c167dfc
-	fromColumn: FactBudget.ProductCategoryKey
-	toColumn: DimProductCategory.ProductCategoryKey
-
-relationship AutoDetected_92ca648b-2705-452a-b63b-0c319a4eabc3
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: DimSegmentBands.SortOrder
-	toColumn: DimProductCategory.SortOrder
-
-relationship AutoDetected_07fe27e6-54a9-4f16-bd7b-c4f14246c9b8
-	fromColumn: FactBudget.StoreKey
-	toColumn: DimStore.StoreKey
-
-relationship AutoDetected_3fda9d66-e7eb-4eee-9fd3-64178a5318eb
-	isActive: false
-	fromColumn: FactCustomerSatisfaction.StoreKey
-	toColumn: DimStore.StoreKey
-
-relationship AutoDetected_8df93da8-3ae1-4813-8362-c9e622c66c4e
-	isActive: false
-	fromColumn: FactFinanceLedger.StoreKey
-	toColumn: DimStore.StoreKey
-
-relationship AutoDetected_6cecc095-5c8a-4ee5-8adf-c1c20f9c3a1b
-	fromColumn: FactInventorySnapshot.StoreKey
-	toColumn: DimStore.StoreKey
-
-relationship AutoDetected_276d8f6d-e438-4a83-bd8e-3576339e8901
-	isActive: false
-	fromColumn: FactReturns.StoreKey
-	toColumn: DimStore.StoreKey
-
-relationship AutoDetected_813a8895-a626-41b9-9d3a-0af97c26d049
-	fromColumn: FactExchangeRate.DateKey
+relationship 2c3209da-7720-ee2d-4da7-93687af4c08f
+	fromColumn: FactSales.OrderDateKey
 	toColumn: DimDate.DateKey
 
-relationship AutoDetected_89f65797-887d-48b9-b44c-6416e7ed2230
+relationship e04ff3e0-43ac-a10c-5e46-02bd4497ca60
+	isActive: false
+	fromColumn: FactSales.ShipDateKey
+	toColumn: DimDate.DateKey
+
+relationship 9eed6dec-46cb-2ba5-39f8-144363a91eaf
+	isActive: false
+	fromColumn: FactSales.DeliveryDateKey
+	toColumn: DimDate.DateKey
+
+relationship b0e263b7-7813-b90e-7f11-8df336fca7b3
+	fromColumn: FactReturns.ReturnDateKey
+	toColumn: DimDate.DateKey
+
+relationship 6f33c316-4336-52b2-327c-6fce39b8ac89
 	fromColumn: FactInventorySnapshot.DateKey
 	toColumn: DimDate.DateKey
 
-relationship AutoDetected_a3d9fb1e-83da-4f66-ae7b-12ad371daa6e
-	fromColumn: FactWebSession.DateKey
+relationship 259214eb-5a38-9a5b-94be-df8eeb8bc5bf
+	fromColumn: FactExchangeRate.DateKey
 	toColumn: DimDate.DateKey
+
+relationship 7bdf7a19-f4e3-13a7-c05a-0ca437eaa950
+	fromColumn: FactFinanceLedger.PostingDateKey
+	toColumn: DimDate.DateKey
+
+relationship 92354751-a520-4d2f-9e9c-f07368afe84e
+	fromColumn: FactBudget.MonthStartDateKey
+	toColumn: DimDate.DateKey
+
+relationship 99cbb130-45d6-0610-d57d-af0dba2957e9
+	fromColumn: DimProductSubcategory.ProductCategoryKey
+	toColumn: DimProductCategory.ProductCategoryKey
+
+relationship 790e7b7e-5334-b690-c219-02d52118a047
+	fromColumn: DimProduct.ProductSubcategoryKey
+	toColumn: DimProductSubcategory.ProductSubcategoryKey
+
+relationship db90f45e-4a08-bc2c-c6ed-5f638eab6c18
+	fromColumn: FactSales.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship 9cd42e24-380e-3464-4c80-560f6aff3041
+	fromColumn: FactReturns.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship 4620ff71-75eb-ac23-dc74-853c21c37059
+	fromColumn: FactInventorySnapshot.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship 56f46793-ec9f-b431-90ee-e5d7c9bba4b6
+	fromColumn: FactBudget.ProductCategoryKey
+	toColumn: DimProductCategory.ProductCategoryKey
+
+relationship e29a3cf6-aa71-784b-f99e-ec8dcc1ec6b6
+	fromColumn: FactSales.CustomerKey
+	toColumn: DimCustomer.CustomerKey
+
+relationship c5348456-510e-aae9-4b6c-2fdacb0e35c8
+	fromColumn: FactReturns.CustomerKey
+	toColumn: DimCustomer.CustomerKey
+
+relationship 85b4fce0-bfa7-2e40-0f7e-7e5b42266c6e
+	fromColumn: FactCustomerSatisfaction.CustomerKey
+	toColumn: DimCustomer.CustomerKey
+
+relationship 8931b419-0175-107d-3f61-6d3981b162ca
+	fromColumn: FactWebSession.CustomerKey
+	toColumn: DimCustomer.CustomerKey
+
+relationship AutoDetected_4f58bbb4-f976-4d38-8b1e-1f432851c69b
+	fromColumn: DimCustomer.CurrencyCode
+	toColumn: DimCurrency.CurrencyCode
+
+relationship 6967b079-3437-638d-1d1f-00340ecb0453
+	fromColumn: FactSales.StoreKey
+	toColumn: DimStore.StoreKey
 

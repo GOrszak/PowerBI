@@ -13,7 +13,7 @@ table FactWebSession
 		dataType: int64
 		formatString: 0
 		lineageTag: 4a1fd55d-eb73-470c-9d0b-7737d35b72d5
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: DateKey
 
 		annotation SummarizationSetBy = Automatic

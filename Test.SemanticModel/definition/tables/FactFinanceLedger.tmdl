@@ -14,7 +14,7 @@ table FactFinanceLedger
 		dataType: int64
 		formatString: 0
 		lineageTag: 89196ae8-3711-48f9-8674-bf6279496baf
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: PostingDateKey
 
 		annotation SummarizationSetBy = Automatic
@@ -23,7 +23,7 @@ table FactFinanceLedger
 		dataType: int64
 		formatString: 0
 		lineageTag: 2e15ff1d-3b44-47b3-8cc7-f7e5c2aaebe5
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: AccountKey
 
 		annotation SummarizationSetBy = Automatic

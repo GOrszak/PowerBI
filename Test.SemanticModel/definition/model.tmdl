@@ -32,7 +32,6 @@ ref table DimAccount
 ref table DimCurrency
 ref table DimCustomer
 ref table DimEmployee
-ref table DimGeography
 ref table DimInterest
 ref table DimProductCategory
 ref table DimProductSubcategory
