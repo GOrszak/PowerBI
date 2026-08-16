@@ -1,6 +1,6 @@
 expression CsvTables =
 		let
-		    FolderPath = "C:\Users\Acetonitryl\Desktop\PBI\Project\PowerBI\dax_training_dataset_retailpulse",
+		    FolderPath = "C:\Users\Acetonitryl\Desktop\PBI\Project\PowerBI\Dataset",
 		
 		    Source = Folder.Files(FolderPath),
 		
@@ -66,4 +66,17 @@ expression CsvTables =
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Record
+
+expression DimGeography =
+		let
+		  Source = CsvTables[DimGeography],
+		    #"Changed Type" = Table.TransformColumnTypes(Source,{{"GeographyKey", Int64.Type}, {"CountryCode", type text}, {"Country", type text}, {"Region", type text}, {"StateProvince", type text}, {"City", type text}, {"CurrencyCode", type text}})
+		in
+		  #"Changed Type"
+	lineageTag: f824adc1-eb73-478d-b39a-1eb5b1f64203
+	queryGroup: Source_files
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

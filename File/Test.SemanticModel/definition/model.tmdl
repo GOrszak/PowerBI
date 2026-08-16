@@ -17,13 +17,37 @@ queryGroup Source_files
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["CsvTables","DimDate","DimProduct","FactSales"]
+annotation PBI_QueryOrder = ["CsvTables","DimProduct","FactSales","BridgeCustomerInterest","BridgeProductInterest","CurrencySelector","DataDictionary_Columns","DataDictionary_Tables","DimAccount","DimCurrency","DimCustomer","DimEmployee","DimGeography","DimInterest","DimProductCategory","DimProductSubcategory","DimSegmentBands","DimStore","FactBudget","FactCustomerSatisfaction","FactExchangeRate","FactFinanceLedger","FactInventorySnapshot","FactReturns","FactWebSession","MetricSelector","WhatIfDiscount","WhatIfTopN","DimDate"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
-ref table DimDate
 ref table DimProduct
 ref table FactSales
+ref table BridgeCustomerInterest
+ref table BridgeProductInterest
+ref table CurrencySelector
+ref table DataDictionary_Columns
+ref table DataDictionary_Tables
+ref table DimAccount
+ref table DimCurrency
+ref table DimCustomer
+ref table DimEmployee
+ref table DimInterest
+ref table DimProductCategory
+ref table DimProductSubcategory
+ref table DimSegmentBands
+ref table DimStore
+ref table FactBudget
+ref table FactCustomerSatisfaction
+ref table FactExchangeRate
+ref table FactFinanceLedger
+ref table FactInventorySnapshot
+ref table FactReturns
+ref table FactWebSession
+ref table MetricSelector
+ref table WhatIfDiscount
+ref table WhatIfTopN
+ref table DimDate
 
 ref cultureInfo en-US
 
