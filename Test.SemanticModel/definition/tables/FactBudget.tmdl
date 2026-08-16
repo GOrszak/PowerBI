@@ -23,7 +23,7 @@ table FactBudget
 		dataType: int64
 		formatString: 0
 		lineageTag: 7c671344-f796-4620-8259-f16cc0f268ac
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: StoreKey
 
 		annotation SummarizationSetBy = Automatic

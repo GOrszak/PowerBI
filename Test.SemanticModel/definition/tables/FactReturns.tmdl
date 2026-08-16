@@ -50,7 +50,7 @@ table FactReturns
 		dataType: int64
 		formatString: 0
 		lineageTag: cb213df2-9d27-4e16-a5da-ceb520f6003b
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: StoreKey
 
 		annotation SummarizationSetBy = Automatic

@@ -5,7 +5,7 @@ table BridgeCustomerInterest
 		dataType: int64
 		formatString: 0
 		lineageTag: 3b150db7-0ce1-4468-b52e-1c45e9e61992
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: CustomerKey
 
 		annotation SummarizationSetBy = Automatic
@@ -14,7 +14,7 @@ table BridgeCustomerInterest
 		dataType: int64
 		formatString: 0
 		lineageTag: b03a1907-948a-4e1a-9ac2-bdc4c633082c
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: InterestKey
 
 		annotation SummarizationSetBy = Automatic

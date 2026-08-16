@@ -5,7 +5,7 @@ table DimEmployee
 		dataType: int64
 		formatString: 0
 		lineageTag: b2917f28-9a71-4c59-ad5c-3c351875812a
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: EmployeeKey
 
 		annotation SummarizationSetBy = Automatic
@@ -22,7 +22,7 @@ table DimEmployee
 		dataType: int64
 		formatString: 0
 		lineageTag: 1064feea-51a7-4b35-b39f-b8fd66b1f4f4
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: ManagerEmployeeKey
 
 		annotation SummarizationSetBy = Automatic

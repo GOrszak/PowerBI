@@ -41,7 +41,7 @@ table DimStore
 		dataType: int64
 		formatString: 0
 		lineageTag: 272e4b86-d5a1-41ec-9a38-dcda1d1bc50a
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: FloorSizeSqM
 
 		annotation SummarizationSetBy = Automatic

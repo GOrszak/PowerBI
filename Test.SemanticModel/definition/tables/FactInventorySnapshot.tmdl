@@ -23,7 +23,7 @@ table FactInventorySnapshot
 		dataType: int64
 		formatString: 0
 		lineageTag: 2eb20a87-2375-4e00-b06b-8e28a7ef6526
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: StoreKey
 
 		annotation SummarizationSetBy = Automatic

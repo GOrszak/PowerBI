@@ -5,7 +5,7 @@ table DimInterest
 		dataType: int64
 		formatString: 0
 		lineageTag: fbfbc5f3-b3df-43b9-989c-a6414cd29b29
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: InterestKey
 
 		annotation SummarizationSetBy = Automatic
