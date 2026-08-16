@@ -1,0 +1,81 @@
+table FactInventorySnapshot
+	lineageTag: e854ade1-026a-4628-9150-ca32d512929e
+
+	column InventorySnapshotID
+		dataType: int64
+		formatString: 0
+		lineageTag: bc5814e7-59d1-4f7b-a0f4-acb967209eca
+		summarizeBy: count
+		sourceColumn: InventorySnapshotID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d46635e-f39f-4509-a0f6-97483bf9f72e
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 2eb20a87-2375-4e00-b06b-8e28a7ef6526
+		summarizeBy: count
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: d45403b5-a25b-48da-9d2d-5cb95c9c8b4b
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OnHandQuantity
+		dataType: int64
+		formatString: 0
+		lineageTag: e15a00cd-0733-4f4e-8ace-9ac1062fbe6d
+		summarizeBy: sum
+		sourceColumn: OnHandQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column SafetyStockQuantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 95076ad7-fc08-4992-a1f7-14e12bfffb2f
+		summarizeBy: sum
+		sourceColumn: SafetyStockQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column InventoryValue
+		dataType: double
+		lineageTag: de8ffcc7-bb6e-4bd9-b931-7ac885f9cc93
+		summarizeBy: sum
+		sourceColumn: InventoryValue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FactInventorySnapshot = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[FactInventorySnapshot],
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"InventorySnapshotID", Int64.Type}, {"DateKey", Int64.Type}, {"StoreKey", Int64.Type}, {"ProductKey", Int64.Type}, {"OnHandQuantity", Int64.Type}, {"SafetyStockQuantity", Int64.Type}, {"InventoryValue", type number}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

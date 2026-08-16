@@ -1,0 +1,87 @@
+table FactFinanceLedger
+	lineageTag: f5c5a25d-fb09-415d-ac13-a0f732b7bb8a
+
+	column LedgerID
+		dataType: int64
+		formatString: 0
+		lineageTag: ae23d120-8ead-417c-98df-706ca580002c
+		summarizeBy: count
+		sourceColumn: LedgerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostingDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 89196ae8-3711-48f9-8674-bf6279496baf
+		summarizeBy: none
+		sourceColumn: PostingDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e15ff1d-3b44-47b3-8cc7-f7e5c2aaebe5
+		summarizeBy: count
+		sourceColumn: AccountKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 939636d5-c7c8-47bc-85cd-faf269843c08
+		summarizeBy: count
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyCode
+		dataType: string
+		lineageTag: 9e1fa37b-3af5-4c7e-b4e0-d885fbc4d301
+		summarizeBy: none
+		sourceColumn: CurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: double
+		lineageTag: 3b160ae7-36cb-42a7-b282-7362630a1a52
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Scenario
+		dataType: string
+		lineageTag: 2caad722-48f6-4276-a804-8d7ec1f9ea3d
+		summarizeBy: none
+		sourceColumn: Scenario
+
+		annotation SummarizationSetBy = Automatic
+
+	column DocumentNumberHighCardinality
+		dataType: string
+		lineageTag: 0190dda6-f5d1-42ae-b0c6-eae5de392eb6
+		summarizeBy: none
+		sourceColumn: DocumentNumberHighCardinality
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactFinanceLedger = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[FactFinanceLedger],
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"LedgerID", Int64.Type}, {"PostingDateKey", Int64.Type}, {"AccountKey", Int64.Type}, {"StoreKey", Int64.Type}, {"CurrencyCode", type text}, {"Amount", type number}, {"Scenario", type text}, {"DocumentNumberHighCardinality", type text}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

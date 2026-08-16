@@ -1,0 +1,87 @@
+table FactCustomerSatisfaction
+	lineageTag: 46f416d3-5ccf-4fd3-bd92-b2f9906530f0
+
+	column SurveyID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9601cb1b-6862-4d01-b5ed-7023a87fc652
+		summarizeBy: count
+		sourceColumn: SurveyID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderLineID
+		dataType: int64
+		formatString: 0
+		lineageTag: c0c9a48b-c69f-4ae0-9f3e-5d24850b6f61
+		summarizeBy: count
+		sourceColumn: OrderLineID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SurveyDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 79a9f553-1ef7-4399-bc88-edf7baeeeca9
+		summarizeBy: count
+		sourceColumn: SurveyDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a068527f-ee01-41fc-afb2-d7b7b3e472fa
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 09c3180d-2c15-437d-9e23-558485716e6d
+		summarizeBy: count
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SatisfactionScore
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b03f3d6-2886-4232-b8d6-890d4fbab67b
+		summarizeBy: sum
+		sourceColumn: SatisfactionScore
+
+		annotation SummarizationSetBy = Automatic
+
+	column NPSGroup
+		dataType: string
+		lineageTag: 51eb6401-8e09-4ae1-9488-72480d4c1b57
+		summarizeBy: none
+		sourceColumn: NPSGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column CommentCategory
+		dataType: string
+		lineageTag: e686d755-3560-4b96-9cd9-f603e9249089
+		summarizeBy: none
+		sourceColumn: CommentCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactCustomerSatisfaction = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[FactCustomerSatisfaction],
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"SurveyID", Int64.Type}, {"OrderLineID", Int64.Type}, {"SurveyDateKey", Int64.Type}, {"CustomerKey", Int64.Type}, {"StoreKey", Int64.Type}, {"SatisfactionScore", Int64.Type}, {"NPSGroup", type text}, {"CommentCategory", type text}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

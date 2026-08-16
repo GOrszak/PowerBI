@@ -1,0 +1,41 @@
+table DimCurrency
+	lineageTag: d766247d-f2eb-407f-a277-c6c46fadb9e3
+
+	column CurrencyCode
+		dataType: string
+		lineageTag: c3beacc1-34c3-43aa-9530-839e2462933c
+		summarizeBy: none
+		sourceColumn: CurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyName
+		dataType: string
+		lineageTag: 118da10e-2735-4170-b87f-35a1985b15c3
+		summarizeBy: none
+		sourceColumn: CurrencyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Symbol
+		dataType: string
+		lineageTag: b424a2cc-842c-4822-863f-d82547aa7245
+		summarizeBy: none
+		sourceColumn: Symbol
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCurrency = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[DimCurrency],
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"CurrencyCode", type text}, {"CurrencyName", type text}, {"Symbol", type text}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,62 @@
+table DimSegmentBands
+	lineageTag: 0d15bc90-8873-4826-9aaa-480d4b6e59f4
+
+	column SegmentBandKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 48b505cd-613f-494b-9d25-74fd8097c43a
+		summarizeBy: count
+		sourceColumn: SegmentBandKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SegmentBandName
+		dataType: string
+		lineageTag: 22551a7e-f570-4070-ae3d-14e12132ba0b
+		summarizeBy: none
+		sourceColumn: SegmentBandName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MinSalesAmount
+		dataType: int64
+		formatString: 0
+		lineageTag: 522dc4d0-c4f9-4285-83f7-32bc69a6dbaf
+		summarizeBy: sum
+		sourceColumn: MinSalesAmount
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaxSalesAmount
+		dataType: double
+		lineageTag: 26fbc23e-27f2-4f07-a0b5-e49931e11bda
+		summarizeBy: sum
+		sourceColumn: MaxSalesAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SortOrder
+		dataType: int64
+		formatString: 0
+		lineageTag: 9dfc4e1a-4cfd-4bd8-8247-4ca9483cd2da
+		summarizeBy: sum
+		sourceColumn: SortOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimSegmentBands = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[DimSegmentBands],
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"SegmentBandKey", Int64.Type}, {"SegmentBandName", type text}, {"MinSalesAmount", Int64.Type}, {"MaxSalesAmount", type number}, {"SortOrder", Int64.Type}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

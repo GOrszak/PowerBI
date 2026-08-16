@@ -1,0 +1,82 @@
+relationship 2c3209da-7720-ee2d-4da7-93687af4c08f
+	fromColumn: FactSales.OrderDateKey
+	toColumn: DimDate.DateKey
+
+relationship e04ff3e0-43ac-a10c-5e46-02bd4497ca60
+	isActive: false
+	fromColumn: FactSales.ShipDateKey
+	toColumn: DimDate.DateKey
+
+relationship 9eed6dec-46cb-2ba5-39f8-144363a91eaf
+	isActive: false
+	fromColumn: FactSales.DeliveryDateKey
+	toColumn: DimDate.DateKey
+
+relationship b0e263b7-7813-b90e-7f11-8df336fca7b3
+	fromColumn: FactReturns.ReturnDateKey
+	toColumn: DimDate.DateKey
+
+relationship 6f33c316-4336-52b2-327c-6fce39b8ac89
+	fromColumn: FactInventorySnapshot.DateKey
+	toColumn: DimDate.DateKey
+
+relationship 259214eb-5a38-9a5b-94be-df8eeb8bc5bf
+	fromColumn: FactExchangeRate.DateKey
+	toColumn: DimDate.DateKey
+
+relationship 7bdf7a19-f4e3-13a7-c05a-0ca437eaa950
+	fromColumn: FactFinanceLedger.PostingDateKey
+	toColumn: DimDate.DateKey
+
+relationship 92354751-a520-4d2f-9e9c-f07368afe84e
+	fromColumn: FactBudget.MonthStartDateKey
+	toColumn: DimDate.DateKey
+
+relationship 99cbb130-45d6-0610-d57d-af0dba2957e9
+	fromColumn: DimProductSubcategory.ProductCategoryKey
+	toColumn: DimProductCategory.ProductCategoryKey
+
+relationship 790e7b7e-5334-b690-c219-02d52118a047
+	fromColumn: DimProduct.ProductSubcategoryKey
+	toColumn: DimProductSubcategory.ProductSubcategoryKey
+
+relationship db90f45e-4a08-bc2c-c6ed-5f638eab6c18
+	fromColumn: FactSales.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship 9cd42e24-380e-3464-4c80-560f6aff3041
+	fromColumn: FactReturns.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship 4620ff71-75eb-ac23-dc74-853c21c37059
+	fromColumn: FactInventorySnapshot.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship 56f46793-ec9f-b431-90ee-e5d7c9bba4b6
+	fromColumn: FactBudget.ProductCategoryKey
+	toColumn: DimProductCategory.ProductCategoryKey
+
+relationship e29a3cf6-aa71-784b-f99e-ec8dcc1ec6b6
+	fromColumn: FactSales.CustomerKey
+	toColumn: DimCustomer.CustomerKey
+
+relationship c5348456-510e-aae9-4b6c-2fdacb0e35c8
+	fromColumn: FactReturns.CustomerKey
+	toColumn: DimCustomer.CustomerKey
+
+relationship 85b4fce0-bfa7-2e40-0f7e-7e5b42266c6e
+	fromColumn: FactCustomerSatisfaction.CustomerKey
+	toColumn: DimCustomer.CustomerKey
+
+relationship 8931b419-0175-107d-3f61-6d3981b162ca
+	fromColumn: FactWebSession.CustomerKey
+	toColumn: DimCustomer.CustomerKey
+
+relationship AutoDetected_4f58bbb4-f976-4d38-8b1e-1f432851c69b
+	fromColumn: DimCustomer.CurrencyCode
+	toColumn: DimCurrency.CurrencyCode
+
+relationship 6967b079-3437-638d-1d1f-00340ecb0453
+	fromColumn: FactSales.StoreKey
+	toColumn: DimStore.StoreKey
+

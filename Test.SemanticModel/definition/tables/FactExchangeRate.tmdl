@@ -1,0 +1,54 @@
+table FactExchangeRate
+	lineageTag: 7682380f-71cf-48ee-bd78-43b81a571cfc
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 04efb366-72a1-437f-94ed-f40e9cb87796
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyCode
+		dataType: string
+		lineageTag: a8c4ea85-c32b-48e9-800d-aec7a8f88a13
+		summarizeBy: none
+		sourceColumn: CurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column RateToEUR
+		dataType: double
+		lineageTag: 1ea378f3-4fac-4535-a50c-a7b5cdd2ca5e
+		summarizeBy: sum
+		sourceColumn: RateToEUR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RateToPLN
+		dataType: double
+		lineageTag: 2956f15b-bf83-43ba-9bb3-a37d87aec91c
+		summarizeBy: sum
+		sourceColumn: RateToPLN
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FactExchangeRate = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[FactExchangeRate],
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"DateKey", Int64.Type}, {"CurrencyCode", type text}, {"RateToEUR", type number}, {"RateToPLN", type number}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

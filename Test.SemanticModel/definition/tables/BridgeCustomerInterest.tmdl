@@ -1,0 +1,35 @@
+table BridgeCustomerInterest
+	lineageTag: 4d2a22d9-8959-447e-a8b9-e4c752a042a7
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b150db7-0ce1-4468-b52e-1c45e9e61992
+		summarizeBy: count
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column InterestKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b03a1907-948a-4e1a-9ac2-bdc4c633082c
+		summarizeBy: count
+		sourceColumn: InterestKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BridgeCustomerInterest = m
+		mode: import
+		queryGroup: Source_files
+		source =
+				let
+				  Source = CsvTables[BridgeCustomerInterest],
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"CustomerKey", Int64.Type}, {"InterestKey", Int64.Type}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
