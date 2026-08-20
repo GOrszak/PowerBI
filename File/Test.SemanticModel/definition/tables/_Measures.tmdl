@@ -1,0 +1,95 @@
+table _Measures
+	lineageTag: 4907066a-1445-4d2c-a842-7080fcc797cf
+
+	measure 'Sales Amount' =
+			
+			SUM ( FactSales[SalesAmount] )
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: 01 Sales Measures
+		lineageTag: d06ee2dd-9364-42f3-9005-332b024f61a5
+
+	measure AVG = "Placeholder"
+		displayFolder: 02 Profitability
+		lineageTag: 4a58bf31-c2d0-4c7a-990f-cdfeb39750ae
+
+	measure 'Sales Quantity' =
+			
+			SUM ( FactSales[Quantity] )
+		formatString: 0
+		displayFolder: 01 Sales Measures
+		lineageTag: 49fa2e49-d31d-45a3-af05-248ea4f41ab5
+
+	measure 'Sales Cost' =
+			
+			SUM ( FactSales[CostAmount] )
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		displayFolder: 01 Sales Measures
+		lineageTag: 664e6bdd-64f4-4d04-bd2b-67377e1703d4
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Gross Profit' =
+			
+			[Sales Amount] - [Sales Cost]
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		displayFolder: 01 Sales Measures
+		lineageTag: b923490e-c43d-4c7e-a6ca-c530fb621a1e
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Gross Margin %' =
+			
+			DIVIDE (
+			    [Gross Profit],
+			    [Sales Amount]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 01 Sales Measures
+		lineageTag: 1784ca73-dab4-43b0-9840-6e5bf53a15b9
+
+	measure Orders =
+			
+			DISTINCTCOUNT ( FactSales[OrderNumber] )
+		formatString: 0
+		displayFolder: 01 Sales Measures
+		lineageTag: 903d94e1-750c-4270-8e7e-601c7b77189c
+
+	measure Customers =
+			
+			DISTINCTCOUNT ( FactSales[CustomerKey] )
+		formatString: 0
+		displayFolder: 01 Sales Measures
+		lineageTag: 6a8f5332-f3eb-409e-9c68-f36ae9e59ece
+
+	measure 'Average Order Value' =
+			
+			DIVIDE (
+			    [Sales Amount],
+			    [Orders]
+			)
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		displayFolder: 01 Sales Measures
+		lineageTag: 49de81ff-b9c8-4884-808a-3ee7db521488
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Tax Amount' = SUM(FactSales[TaxAmount])
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		displayFolder: 01 Sales Measures
+		lineageTag: 36505f1b-d3db-417c-8ad1-64102b10bb89
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				  Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

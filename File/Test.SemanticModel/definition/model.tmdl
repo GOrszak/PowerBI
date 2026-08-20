@@ -17,9 +17,9 @@ queryGroup Source_files
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["CsvTables","DimProduct","FactSales","BridgeCustomerInterest","BridgeProductInterest","CurrencySelector","DataDictionary_Columns","DataDictionary_Tables","DimAccount","DimCurrency","DimCustomer","DimEmployee","DimGeography","DimInterest","DimProductCategory","DimProductSubcategory","DimSegmentBands","DimStore","FactBudget","FactCustomerSatisfaction","FactExchangeRate","FactFinanceLedger","FactInventorySnapshot","FactReturns","FactWebSession","MetricSelector","WhatIfDiscount","WhatIfTopN","DimDate"]
+annotation PBI_QueryOrder = ["CsvTables","DimProduct","FactSales","BridgeCustomerInterest","BridgeProductInterest","CurrencySelector","DataDictionary_Columns","DataDictionary_Tables","DimAccount","DimCurrency","DimCustomer","DimEmployee","DimGeography","DimInterest","DimProductCategory","DimProductSubcategory","DimSegmentBands","DimStore","FactBudget","FactCustomerSatisfaction","FactExchangeRate","FactFinanceLedger","FactInventorySnapshot","FactReturns","FactWebSession","MetricSelector","WhatIfDiscount","WhatIfTopN","DimDate","_Measures"]
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","DaxQueryView_Desktop","TMDLView_Desktop"]
 
 ref table DimProduct
 ref table FactSales
@@ -48,6 +48,7 @@ ref table MetricSelector
 ref table WhatIfDiscount
 ref table WhatIfTopN
 ref table DimDate
+ref table _Measures
 
 ref cultureInfo en-US
 

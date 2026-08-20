@@ -2,7 +2,7 @@ table DimProduct
 	lineageTag: 4fea5732-8fb7-41d4-adf7-6aff1dff6777
 
 	column ProductKey
-		dataType: string
+		dataType: int64
 		lineageTag: 8a4639aa-b0f9-43e3-9668-43dbb93c2c19
 		summarizeBy: none
 		sourceColumn: ProductKey
