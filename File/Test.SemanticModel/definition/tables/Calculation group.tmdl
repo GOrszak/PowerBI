@@ -1,0 +1,83 @@
+table 'Calculation group'
+	lineageTag: 61c34909-246a-416e-ba25-9e7d09632d08
+
+	calculationGroup
+
+		calculationItem Current = SELECTEDMEASURE()
+
+		calculationItem 'Previous Year' =
+				CALCULATE (
+				    SELECTEDMEASURE(),
+				    DATEADD (
+				        DimDate[Date],
+				        -1,
+				        YEAR
+				    )
+				)
+
+		calculationItem YoY =
+				
+				
+				VAR CurrentValue =
+				    SELECTEDMEASURE()
+				
+				VAR PreviousValue =
+				    CALCULATE (
+				        SELECTEDMEASURE(),
+				        DATEADD (
+				            DimDate[Date],
+				            -1,
+				            YEAR
+				        )
+				    )
+				
+				RETURN
+				    CurrentValue - PreviousValue
+
+		calculationItem 'YoY %' =
+				
+				VAR CurrentValue =
+				    SELECTEDMEASURE()
+				
+				VAR PreviousValue =
+				    CALCULATE (
+				        SELECTEDMEASURE(),
+				        DATEADD (
+				            DimDate[Date],
+				            -1,
+				            YEAR
+				        )
+				    )
+				
+				RETURN
+				    DIVIDE (
+				        CurrentValue - PreviousValue,
+				        PreviousValue
+				    )
+
+		calculationItem YTD =
+				
+				
+				CALCULATE (
+				    SELECTEDMEASURE(),
+				    DATESYTD ( DimDate[Date] )
+				)
+
+	column 'Calculation group column'
+		dataType: string
+		lineageTag: 3cd2da35-bcf2-4e8f-a795-4e975bb54c79
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordinal
+		dataType: int64
+		formatString: 0
+		lineageTag: a1bba088-2faf-4178-8a20-67d3f78f39ec
+		summarizeBy: none
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = User
+

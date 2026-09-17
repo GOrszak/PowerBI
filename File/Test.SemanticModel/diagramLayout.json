@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 873.18179704073407,
-        "y": 74.694656803661417
+        "x": 1653.1477817112236,
+        "y": 0
       },
       "nodes": [
         {
@@ -36,8 +36,8 @@
         },
         {
           "location": {
-            "x": 2346.87960937797,
-            "y": 240.04898988511633
+            "x": 2359.5636077031204,
+            "y": 169.58233252317157
           },
           "nodeIndex": "FactSales",
           "nodeLineageTag": "f39acde3-e0b9-4901-979b-c9347810e04e",
@@ -244,8 +244,8 @@
         },
         {
           "location": {
-            "x": 1245.4026607353094,
-            "y": 1244.0866965488933
+            "x": 1084.7386819500753,
+            "y": 1252.5426954323268
           },
           "nodeIndex": "FactCustomerSatisfaction",
           "nodeLineageTag": "46f416d3-5ccf-4fd3-bd92-b2f9906530f0",
@@ -309,8 +309,8 @@
         },
         {
           "location": {
-            "x": 1409.0977629602953,
-            "y": 1042.1482014664011
+            "x": 1606.4044035737406,
+            "y": 1511.4561394969533
           },
           "nodeIndex": "FactWebSession",
           "nodeLineageTag": "258873d8-f864-4ee6-a494-7a2ee86f4bf6",
@@ -319,19 +319,6 @@
             "width": 234
           },
           "zIndex": 19
-        },
-        {
-          "location": {
-            "x": 4103.4365292299863,
-            "y": 841.12683610691727
-          },
-          "nodeIndex": "MetricSelector",
-          "nodeLineageTag": "b3a667d3-9bf3-425b-b76d-8b5b4b7b8e1b",
-          "size": {
-            "height": 152,
-            "width": 234
-          },
-          "zIndex": 20
         },
         {
           "location": {
@@ -368,6 +355,43 @@
           "nodeLineageTag": "4907066a-1445-4d2c-a842-7080fcc797cf",
           "size": {
             "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4156.0362294330716,
+            "y": 839.72806974847663
+          },
+          "nodeIndex": "Calculation group",
+          "nodeLineageTag": "61c34909-246a-416e-ba25-9e7d09632d08",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4156.0362294330716,
+            "y": 827.72806974847663
+          },
+          "nodeIndex": "Measure",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4156.0362294330716,
+            "y": 827.72806974847663
+          },
+          "nodeIndex": "Selector",
+          "size": {
+            "height": 152,
             "width": 234
           },
           "zIndex": 0

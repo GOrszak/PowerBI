@@ -1,6 +1,7 @@
 model Model
 	culture: en-US
 	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
 	sourceQueryCulture: en-GB
 	valueFilterBehavior: independent
 	dataAccessOptions
@@ -17,9 +18,9 @@ queryGroup Source_files
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["CsvTables","DimProduct","FactSales","BridgeCustomerInterest","BridgeProductInterest","CurrencySelector","DataDictionary_Columns","DataDictionary_Tables","DimAccount","DimCurrency","DimCustomer","DimEmployee","DimGeography","DimInterest","DimProductCategory","DimProductSubcategory","DimSegmentBands","DimStore","FactBudget","FactCustomerSatisfaction","FactExchangeRate","FactFinanceLedger","FactInventorySnapshot","FactReturns","FactWebSession","MetricSelector","WhatIfDiscount","WhatIfTopN","DimDate","_Measures"]
+annotation PBI_QueryOrder = ["CsvTables","DimProduct","FactSales","BridgeCustomerInterest","BridgeProductInterest","CurrencySelector","DataDictionary_Columns","DataDictionary_Tables","DimAccount","DimCurrency","DimCustomer","DimEmployee","DimGeography","DimInterest","DimProductCategory","DimProductSubcategory","DimSegmentBands","DimStore","FactBudget","FactCustomerSatisfaction","FactExchangeRate","FactFinanceLedger","FactInventorySnapshot","FactReturns","FactWebSession","WhatIfDiscount","WhatIfTopN","DimDate","_Measures"]
 
-annotation PBI_ProTooling = ["DevMode","DaxQueryView_Desktop","TMDLView_Desktop"]
+annotation PBI_ProTooling = ["DevMode","DaxQueryView_Desktop","TMDLView_Desktop","CalcGroup"]
 
 ref table DimProduct
 ref table FactSales
@@ -44,11 +45,13 @@ ref table FactFinanceLedger
 ref table FactInventorySnapshot
 ref table FactReturns
 ref table FactWebSession
-ref table MetricSelector
 ref table WhatIfDiscount
 ref table WhatIfTopN
 ref table DimDate
 ref table _Measures
+ref table 'Calculation group'
+ref table Measure
+ref table Selector
 
 ref cultureInfo en-US
 

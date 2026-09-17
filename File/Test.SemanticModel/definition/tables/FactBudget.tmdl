@@ -38,7 +38,7 @@ table FactBudget
 		annotation SummarizationSetBy = Automatic
 
 	column BudgetSalesAmount
-		dataType: decimal
+		dataType: double
 		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
 		lineageTag: 78e20b92-898d-4a0c-ab76-0e741b4f56de
 		summarizeBy: sum

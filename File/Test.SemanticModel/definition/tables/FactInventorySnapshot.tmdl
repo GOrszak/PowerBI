@@ -5,10 +5,10 @@ table FactInventorySnapshot
 		dataType: int64
 		formatString: 0
 		lineageTag: bc5814e7-59d1-4f7b-a0f4-acb967209eca
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: InventorySnapshotID
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column DateKey
 		dataType: int64
@@ -41,10 +41,10 @@ table FactInventorySnapshot
 		dataType: int64
 		formatString: 0
 		lineageTag: e15a00cd-0733-4f4e-8ace-9ac1062fbe6d
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: OnHandQuantity
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column SafetyStockQuantity
 		dataType: int64

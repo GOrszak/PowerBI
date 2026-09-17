@@ -4,7 +4,7 @@ table _Measures
 	measure 'Sales Amount' =
 			
 			SUM ( FactSales[SalesAmount] )
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: 01 Sales Measures
 		lineageTag: d06ee2dd-9364-42f3-9005-332b024f61a5
 
@@ -79,6 +79,125 @@ table _Measures
 		lineageTag: 36505f1b-d3db-417c-8ad1-64102b10bb89
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Return Amount' =
+			
+			SUM ( FactReturns[ReturnAmount] )
+		displayFolder: 03 Returns Measures
+		lineageTag: 3e1cba4d-10aa-48f7-8635-8916671d2f33
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Returned Quantity' =
+			
+			SUM ( FactReturns[ReturnedQuantity] )
+		formatString: 0
+		displayFolder: 03 Returns Measures
+		lineageTag: 1983407b-aa67-48e1-9c11-b605182d12cf
+
+	measure 'Return Rate %' =
+			
+			DIVIDE (
+			    [Returned Quantity],
+			    [Sales Quantity]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 03 Returns Measures
+		lineageTag: 896764eb-0035-4042-a883-b4061adac3bd
+
+	measure 'Net Sales After Returns' =
+			
+			[Sales Amount] - [Return Amount]
+		displayFolder: 03 Returns Measures
+		lineageTag: 4a72a14c-70c1-41b2-943f-642e59ef7598
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ending On Hand' =
+			
+			VAR LastVisibleDate =
+			    MAX ( DimDate[Date] )
+			
+			RETURN
+			    CALCULATE (
+			        SUM ( FactInventorySnapshot[OnHandQuantity] ),
+			        DimDate[Date] = LastVisibleDate
+			    )
+		formatString: 0
+		displayFolder: 04 Inventory Measures
+		lineageTag: 4f0bad2e-3bb6-4941-b227-fdd150d69414
+
+	measure 'Ending Inventory Value' =
+			
+			VAR LastVisibleDate =
+			    MAX ( DimDate[Date] )
+			
+			RETURN
+			    CALCULATE (
+			        SUM ( FactInventorySnapshot[InventoryValue] ),
+			        DimDate[Date] = LastVisibleDate
+			    )
+		displayFolder: 04 Inventory Measures
+		lineageTag: f59135d5-c63e-4e35-9193-c819c27463e8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ending Safety Stock' =
+			
+			VAR LastVisibleDate =
+			    MAX ( DimDate[Date] )
+			
+			RETURN
+			    CALCULATE (
+			        SUM ( FactInventorySnapshot[SafetyStockQuantity] ),
+			        DimDate[Date] = LastVisibleDate
+			    )
+		formatString: 0
+		displayFolder: 04 Inventory Measures
+		lineageTag: ce233df3-3bba-4a20-a02f-6ef90ed46fa5
+
+	measure 'Budget Sales' =
+			
+			SUM ( FactBudget[BudgetSalesAmount] )
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		displayFolder: 05 Budget Measures
+		lineageTag: bec799dc-a5ef-4490-90f0-db57ac903b7f
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Budget Gross Margin' =
+			
+			SUM ( FactBudget[BudgetGrossMarginAmount] )
+		displayFolder: 05 Budget Measures
+		lineageTag: 86725ce8-649b-4a2c-b6b3-9d4739f0bdf7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Budget Units' =
+			
+			SUM ( FactBudget[BudgetUnits] )
+		formatString: 0
+		displayFolder: 05 Budget Measures
+		lineageTag: 81617e67-11c4-43f6-9c8a-a84b1511567e
+
+	measure 'Sales Variance' =
+			
+			[Sales Amount] - [Budget Sales]
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		displayFolder: 05 Budget Measures
+		lineageTag: 1bea3e66-cae1-4d90-a984-ff5012abdc25
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Sales Variance %' =
+			
+			DIVIDE (
+			    [Sales Variance],
+			    [Budget Sales]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 05 Budget Measures
+		lineageTag: 7fa36af0-5bf7-44de-858d-67448a8cc992
 
 	partition _Measures = m
 		mode: import

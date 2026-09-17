@@ -19,7 +19,7 @@ table DimSegmentBands
 		annotation SummarizationSetBy = Automatic
 
 	column MinSalesAmount
-		dataType: decimal
+		dataType: int64
 		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
 		lineageTag: 522dc4d0-c4f9-4285-83f7-32bc69a6dbaf
 		summarizeBy: sum
@@ -28,7 +28,7 @@ table DimSegmentBands
 		annotation SummarizationSetBy = Automatic
 
 	column MaxSalesAmount
-		dataType: decimal
+		dataType: double
 		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
 		lineageTag: 04988a8f-c277-4d19-b804-25492dcf1f87
 		summarizeBy: sum

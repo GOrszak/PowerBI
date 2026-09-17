@@ -1,0 +1,51 @@
+table Measure
+	lineageTag: b8ee5a94-6d3e-4c04-96ed-b2fc7b83589d
+
+	column Measure
+		lineageTag: 89af8850-d8c6-42b7-9c89-12f6cc796ef7
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Fields'
+		isHidden
+		lineageTag: aabcd84c-9508-4343-b476-3028a1d82b47
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Order'
+		isHidden
+		formatString: 0
+		lineageTag: bee74e9b-180f-4788-ba78-f0495c7dbbdf
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Measure = calculated
+		mode: import
+		source =
+				{
+				    ("Sales Amount", NAMEOF('_Measures'[Sales Amount]), 0),
+				    ("Gross Profit", NAMEOF('_Measures'[Gross Profit]), 1),
+				    ("Gross Margin %", NAMEOF('_Measures'[Gross Margin %]), 2),
+				    ("Orders", NAMEOF('_Measures'[Orders]), 3),
+				    ("Sales Quantity", NAMEOF('_Measures'[Sales Quantity]), 4)
+				}
+
+	annotation PBI_Id = 694540f8310644869ac6fe8238419580
+

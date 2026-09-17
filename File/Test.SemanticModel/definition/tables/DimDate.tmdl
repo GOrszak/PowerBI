@@ -176,10 +176,10 @@ table DimDate
 		dataType: int64
 		formatString: 0
 		lineageTag: 4a98746c-78dd-4c34-af5a-93255e45a7b5
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: FiscalQuarter
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column FiscalMonthNumber
 		dataType: int64

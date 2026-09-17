@@ -1,0 +1,51 @@
+table Selector
+	lineageTag: dac0e8d8-12bb-43d0-bcab-224929952eee
+
+	column Attribute
+		lineageTag: c7d210d4-6f41-43ff-8f6b-c43de3ab06d6
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Fields'
+		isHidden
+		lineageTag: 2882e32b-3e15-4462-ac57-d20cc74cf001
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Order'
+		isHidden
+		formatString: 0
+		lineageTag: cc32796e-c290-4779-8071-d4fb22ce4a6d
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Selector = calculated
+		mode: import
+		source =
+				{
+				    ("ProductName", NAMEOF('DimProduct'[ProductName]), 0),
+				    ("ProductCategoryName", NAMEOF('DimProductCategory'[ProductCategoryName]), 1),
+				    ("StoreName", NAMEOF('DimStore'[StoreName]), 2),
+				    ("Region", NAMEOF('DimCustomer'[Region]), 3),
+				    ("Customer", NAMEOF(DimCustomer[FullName]),4)
+				}
+
+	annotation PBI_Id = c8230da9a6644f9bb89b70cfad4c8cf2
+
